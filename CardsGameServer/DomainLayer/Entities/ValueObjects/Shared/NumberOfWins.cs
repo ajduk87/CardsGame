@@ -9,14 +9,14 @@
             this.Content = Content;
         }
 
-        public static explicit operator NumberOfWins(int amount)
+        public static explicit operator NumberOfWins(int numberOfWins)
         {
-            return new NumberOfWins(amount);
+            return new NumberOfWins(numberOfWins);
         }
 
-        public static implicit operator int(NumberOfWins amount)
+        public static implicit operator int(NumberOfWins numberOfWins)
         {
-            return amount.Content;
+            return numberOfWins.Content;
         }
     }
 }

@@ -9,14 +9,14 @@
             this.Content = Content;
         }
 
-        public static explicit operator CardValue(int amount)
+        public static explicit operator CardValue(int cardValue)
         {
-            return new CardValue(amount);
+            return new CardValue(cardValue);
         }
 
-        public static implicit operator int(CardValue amount)
+        public static implicit operator int(CardValue cardValue)
         {
-            return amount.Content;
+            return cardValue.Content;
         }
     }
 }

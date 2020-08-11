@@ -9,14 +9,14 @@
             this.Content = Content;
         }
 
-        public static explicit operator NumberOfSteps(int amount)
+        public static explicit operator NumberOfSteps(int numberOfSteps)
         {
-            return new NumberOfSteps(amount);
+            return new NumberOfSteps(numberOfSteps);
         }
 
-        public static implicit operator int(NumberOfSteps amount)
+        public static implicit operator int(NumberOfSteps numberOfSteps)
         {
-            return amount.Content;
+            return numberOfSteps.Content;
         }
     }
 }

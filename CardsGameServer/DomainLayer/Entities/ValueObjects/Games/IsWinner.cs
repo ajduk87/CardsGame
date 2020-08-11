@@ -9,14 +9,14 @@
             this.Content = Content;
         }
 
-        public static explicit operator IsWinner(bool amount)
+        public static explicit operator IsWinner(bool isWinner)
         {
-            return new IsWinner(amount);
+            return new IsWinner(isWinner);
         }
 
-        public static implicit operator bool(IsWinner amount)
+        public static implicit operator bool(IsWinner isWinner)
         {
-            return amount.Content;
+            return isWinner.Content;
         }
     }
 }
