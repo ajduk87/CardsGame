@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CardsGameConfigService.Serialization;
 
 namespace CardsGameConfigService.Registration
 {
@@ -6,8 +7,8 @@ namespace CardsGameConfigService.Registration
     {
         protected override void Load(ContainerBuilder objContainer)
         {
-            //objContainer.RegisterType<ConfigurationService>()
-            //            .As<IConfigurationService>();
+            objContainer.RegisterType<IJsonSerializer>()
+                        .As<JsonSerializer>();
 
             base.Load(objContainer);
         }

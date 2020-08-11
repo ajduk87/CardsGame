@@ -1,0 +1,9 @@
+/.vs
+/CardsGameConfigService/obj
+/CardsGameConfigService/bin
+/packages
+/CardsGameServer/obj
+/CardsGameServer/bin
+/CardsGameServerQuery/obj
+/CardsGameServerQuery/bin
+/Database
