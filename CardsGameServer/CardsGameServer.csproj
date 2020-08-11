@@ -164,12 +164,15 @@
     <Compile Include="DomainLayer\Entities\PlayerEntities\Player.cs" />
     <Compile Include="DomainLayer\Entities\ScoreEntities\Score.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Card.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\DiscardPile.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GamesNumberOfPlayers\NumberOfPlayers.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\CardsLeft.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\CardValue.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\IsStepWinner.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Games\IsWinner.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Games\NumberOfSteps.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\NewPile.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\PlayingPile.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Shared\Id.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Shared\Name.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Shared\NumberOfWins.cs" />

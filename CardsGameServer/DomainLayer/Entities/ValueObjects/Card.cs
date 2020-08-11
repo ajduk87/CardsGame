@@ -39,5 +39,10 @@ namespace CardsGameServer.DomainLayer.Entities.ValueObjects
 
             return Equals(otherCard);
         }
+
+        public override string ToString()
+        {
+            return $"{this.Value.Content} {this.Suit}";
+        }
     }
 }
