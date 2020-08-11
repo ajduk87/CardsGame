@@ -151,9 +151,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationLayer\Enums\CardSuit.cs" />
     <Compile Include="ApplicationLayer\Registration\RegistrationModule.cs" />
     <Compile Include="ApplicationLayer\Registration\RegistrationValidatorsModule.cs" />
     <Compile Include="ContainerInitializer.cs" />
+    <Compile Include="DomainLayer\Entities\Entity.cs" />
+    <Compile Include="DomainLayer\Entities\GamesEntities\Game.cs" />
+    <Compile Include="DomainLayer\Entities\GamesEntities\GamesGameStep.cs" />
+    <Compile Include="DomainLayer\Entities\GamesEntities\GamesNumberOfPlayers.cs" />
+    <Compile Include="DomainLayer\Entities\GamesEntities\GameSteps.cs" />
+    <Compile Include="DomainLayer\Entities\IEntity.cs" />
+    <Compile Include="DomainLayer\Entities\PlayerEntities\Player.cs" />
+    <Compile Include="DomainLayer\Entities\ScoreEntities\Score.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\Card.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\GamesNumberOfPlayers\NumberOfPlayers.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\CardValue.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\IsStepWinner.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\Games\IsWinner.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\Games\NumberOfSteps.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\Shared\Id.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\Shared\Name.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\Shared\NumberOfWins.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\ValueObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -169,7 +188,6 @@
     <Folder Include="ApplicationLayer\Models\" />
     <Folder Include="ApplicationLayer\Services\" />
     <Folder Include="ApplicationLayer\Validation\" />
-    <Folder Include="DomainLayer\Entities\" />
     <Folder Include="DomainLayer\Mappings\" />
     <Folder Include="DomainLayer\Registration\" />
     <Folder Include="DomainLayer\Repositories\" />
