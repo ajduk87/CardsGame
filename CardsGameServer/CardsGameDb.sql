@@ -8,6 +8,10 @@ DROP SEQUENCE IF EXISTS cardsgame.games_id_seq;
 
 DROP SEQUENCE IF EXISTS cardsgame.gamesteps_id_seq;
 
+DROP SEQUENCE IF EXISTS cardsgame.shuffleddeck_id_seq;
+
+DROP SEQUENCE IF EXISTS cardsgame.gamesnumberofplayers_id_seq;
+
 CREATE SEQUENCE cardsgame.players_id_seq INCREMENT 1 START 1;
 
 CREATE SEQUENCE cardsgame.scores_id_seq INCREMENT 1 START 1;
@@ -16,12 +20,16 @@ CREATE SEQUENCE cardsgame.games_id_seq INCREMENT 1 START 1;
 
 CREATE SEQUENCE cardsgame.gamesteps_id_seq INCREMENT 1 START 1;
 
+CREATE SEQUENCE cardsgame.shuffleddeck_id_seq INCREMENT 1 START 1;
+
+CREATE SEQUENCE cardsgame.gamesnumberofplayers_id_seq INCREMENT 1 START 1;
+
 DROP TABLE IF EXISTS cardsgame.players CASCADE;
 
 CREATE TABLE cardsgame.players
 (
 	Id integer NOT NULL   DEFAULT NEXTVAL(('cardsgame."players_id_seq"'::text)::regclass),
-	Name varchar(500) UNIQUE NOT NULL,
+	Name varchar(500) NOT NULL,
 	NumberOfWins integer NOT NULL
 	
 );
@@ -87,6 +95,20 @@ ALTER TABLE cardsgame.gamesnumberofplayers ADD CONSTRAINT PK_GamesNumberOfPlayer
 	PRIMARY KEY (Id);
 ALTER TABLE cardsgame.gamesnumberofplayers ADD CONSTRAINT FK_GamesNumberOfPlayers_Games
 	FOREIGN KEY (GameId) REFERENCES cardsgame.games (Id) ON DELETE No Action ON UPDATE No Action;
+	
+DROP TABLE IF EXISTS cardsgame.shuffleddeck CASCADE;
+	
+CREATE TABLE cardsgame.shuffleddeck
+(
+	Id integer NOT NULL   DEFAULT NEXTVAL(('cardsgame."shuffleddeck_id_seq"'::text)::regclass),
+	Deck varchar(500) NOT NULL,
+	GameStepId integer NOT NULL
+);
+
+ALTER TABLE cardsgame.shuffleddeck ADD CONSTRAINT PK_ShuffledDeck
+	PRIMARY KEY (Id);
+ALTER TABLE cardsgame.shuffleddeck ADD CONSTRAINT FK_GameSteps_ShuffledDeck
+	FOREIGN KEY (GameStepId) REFERENCES cardsgame.gamesteps (Id) ON DELETE No Action ON UPDATE No Action;
 
 
 -- create table connection BEGIN
