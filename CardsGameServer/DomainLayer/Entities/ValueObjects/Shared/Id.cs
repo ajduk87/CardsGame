@@ -2,19 +2,19 @@
 {
     public class Id : ValueObject<Id>
     {
-        public long Content { get; private set; }
+        public int Content { get; private set; }
 
-        public Id(long Content)
+        public Id(int Content)
         {
             this.Content = Content;
         }
 
-        public static explicit operator Id(long id)
+        public static explicit operator Id(int id)
         {
             return new Id(id);
         }
 
-        public static implicit operator long(Id id)
+        public static implicit operator int(Id id)
         {
             return id.Content;
         }

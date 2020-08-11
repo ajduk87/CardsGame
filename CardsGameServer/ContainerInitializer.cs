@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using CardsGameServer.ApplicationLayer.Registration;
+using ApplicationLayer = CardsGameServer.ApplicationLayer.Registration;
+using DomainLayer = CardsGameServer.DomainLayer.Registration;
 using System.Reflection;
 
 namespace CardsGameServer
@@ -10,14 +11,17 @@ namespace CardsGameServer
         private static ContainerBuilder objContainer { get; set; }
         public static Autofac.IContainer Container { get; set; }
 
-        public static ILifetimeScope GetContainer()
+        public static IContainer GetContainer()
         {
             objContainer = new ContainerBuilder();
 
-            objContainer.RegisterApiControllers(Assembly.GetExecutingAssembly())/*.PropertiesAutowired()*/;
+            objContainer.RegisterModule<ApplicationLayer.Registration.RegistrationModule>();
+            objContainer.RegisterModule<ApplicationLayer.Registration.RegistrationValidatorsModule>();
 
-            objContainer.RegisterModule<RegistrationModule>();
-            objContainer.RegisterModule<RegistrationValidatorsModule>();
+            objContainer.RegisterModule<DomainLayer.Registration.RegistrationModule>();
+
+
+            objContainer.RegisterApiControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
 
             Container = objContainer.Build();
 

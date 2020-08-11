@@ -45,8 +45,8 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentValidation.9.1.1\lib\net461\FluentValidation.dll</HintPath>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.Cors, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Cors.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cors.dll</HintPath>
@@ -96,6 +96,9 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Npgsql, Version=4.1.4.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.1.4\lib\net461\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
@@ -108,25 +111,36 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
@@ -151,11 +165,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationLayer\Controllers\BaseController.cs" />
+    <Compile Include="ApplicationLayer\Controllers\GameController.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\Dto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\GameDto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\Parameter.cs" />
     <Compile Include="ApplicationLayer\Enums\CardSuit.cs" />
+    <Compile Include="ApplicationLayer\Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="ApplicationLayer\Mappings\GameProfile.cs" />
+    <Compile Include="ApplicationLayer\Models\GameBaseModel.cs" />
+    <Compile Include="ApplicationLayer\Models\GameCreateModel.cs" />
+    <Compile Include="ApplicationLayer\Models\GameUpdateModel.cs" />
+    <Compile Include="ApplicationLayer\Registration\Containers\RegistrationValidators.cs" />
     <Compile Include="ApplicationLayer\Registration\RegistrationModule.cs" />
     <Compile Include="ApplicationLayer\Registration\RegistrationValidatorsModule.cs" />
+    <Compile Include="ApplicationLayer\Services\BaseAppService.cs" />
+    <Compile Include="ApplicationLayer\Services\Configuration\ConfigurationService.cs" />
+    <Compile Include="ApplicationLayer\Services\Configuration\IConfigurationService.cs" />
+    <Compile Include="ApplicationLayer\Services\GameServices\GameAppService.cs" />
+    <Compile Include="ApplicationLayer\Services\GameServices\IGameAppService.cs" />
+    <Compile Include="ApplicationLayer\Validation\Game\GameListCreateValidator.cs" />
+    <Compile Include="ApplicationLayer\Validation\Game\GameUpdateValidator.cs" />
+    <Compile Include="ApplicationLayer\Validation\ValidateModelStateFilter.cs" />
+    <Compile Include="ApplicationLayer\Validation\ValidatorFactory.cs" />
     <Compile Include="ContainerInitializer.cs" />
+    <Compile Include="DatabaseConnectionFactory.cs" />
     <Compile Include="DomainLayer\Entities\Entity.cs" />
+    <Compile Include="DomainLayer\Entities\EntityFactory.cs" />
     <Compile Include="DomainLayer\Entities\GamesEntities\Game.cs" />
     <Compile Include="DomainLayer\Entities\GamesEntities\GamesGameStep.cs" />
     <Compile Include="DomainLayer\Entities\GamesEntities\GamesNumberOfPlayers.cs" />
@@ -178,6 +214,21 @@
     <Compile Include="DomainLayer\Entities\ValueObjects\Shared\NumberOfWins.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\ShuffledDeck\Deck.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\ValueObject.cs" />
+    <Compile Include="DomainLayer\Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="DomainLayer\Mappings\DtoToEntityMapper.cs" />
+    <Compile Include="DomainLayer\Mappings\Profiles\GameProfile.cs" />
+    <Compile Include="DomainLayer\Mappings\IMapper.cs" />
+    <Compile Include="DomainLayer\Registration\RegistrationModule.cs" />
+    <Compile Include="DomainLayer\Repositories\GameRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\IGameRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Sql\GameQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameQueries.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DomainLayer\Services\GameService.cs" />
+    <Compile Include="DomainLayer\Services\IGameService.cs" />
+    <Compile Include="IDatabaseConnectionFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -186,17 +237,18 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="ApplicationLayer\Controllers\" />
-    <Folder Include="ApplicationLayer\Dtoes\" />
-    <Folder Include="ApplicationLayer\Mappings\" />
-    <Folder Include="ApplicationLayer\Models\" />
-    <Folder Include="ApplicationLayer\Services\" />
-    <Folder Include="ApplicationLayer\Validation\" />
-    <Folder Include="DomainLayer\Mappings\" />
-    <Folder Include="DomainLayer\Registration\" />
-    <Folder Include="DomainLayer\Repositories\" />
-    <Folder Include="DomainLayer\Services\" />
+    <ProjectReference Include="..\RepositoryFactory\RepositoryFactory.csproj">
+      <Project>{f574524c-919e-42cc-9935-c1f06f451dbc}</Project>
+      <Name>RepositoryFactory</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DomainLayer\Repositories\Sql\GameQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GameQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

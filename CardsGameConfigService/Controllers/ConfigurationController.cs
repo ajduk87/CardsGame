@@ -43,7 +43,7 @@ namespace CardsGameConfigService.Controllers
         }
 
         [HttpPost]
-        [Route("api/numberofplayers")]
+        [Route("api/configuration")]
         [ValidateModelStateFilter]
         public HttpResponseMessage Update(PlayerNumberCreateModel playerNumberCreateModel)
         {
@@ -53,7 +53,7 @@ namespace CardsGameConfigService.Controllers
         }
 
         [HttpPut]
-        [Route("api/numberofplayers")]
+        [Route("api/configuration")]
         [ValidateModelStateFilter]
         public HttpResponseMessage Update(PlayerNumberUpdateModel playerNumberUpdateModel)
         {

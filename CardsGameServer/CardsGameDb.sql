@@ -55,8 +55,8 @@ DROP TABLE IF EXISTS cardsgame.games CASCADE;
 CREATE TABLE cardsgame.games
 (
 	Id integer NOT NULL   DEFAULT NEXTVAL(('cardsgame."games_id_seq"'::text)::regclass),
-	Name varchar(500) UNIQUE NOT NULL,
-	PlayerId integer UNIQUE NOT NULL,
+	Name varchar(500) NOT NULL,
+	PlayerId integer  NOT NULL,
 	NumberOfSteps integer NOT NULL,
 	IsWinner boolean NULL
 	

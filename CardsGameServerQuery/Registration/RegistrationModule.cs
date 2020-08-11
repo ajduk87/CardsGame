@@ -6,8 +6,8 @@ namespace CardsGameServerQuery.Registration
     {
         protected override void Load(ContainerBuilder objContainer)
         {
-            //objContainer.RegisterType<ConfigurationService>()
-            //            .As<IConfigurationService>();
+            objContainer.RegisterType<ConfigurationService>()
+                        .As<IConfigurationService>();
 
             base.Load(objContainer);
         }

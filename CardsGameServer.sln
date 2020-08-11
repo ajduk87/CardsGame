@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardsGameServerQuery", "Car
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardsGameConfigService", "CardsGameConfigService\CardsGameConfigService.csproj", "{876514FE-FAD2-4ED0-B7BC-FB2B023DCCB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryFactory", "RepositoryFactory\RepositoryFactory.csproj", "{F574524C-919E-42CC-9935-C1F06F451DBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{876514FE-FAD2-4ED0-B7BC-FB2B023DCCB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{876514FE-FAD2-4ED0-B7BC-FB2B023DCCB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{876514FE-FAD2-4ED0-B7BC-FB2B023DCCB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F574524C-919E-42CC-9935-C1F06F451DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F574524C-919E-42CC-9935-C1F06F451DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F574524C-919E-42CC-9935-C1F06F451DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F574524C-919E-42CC-9935-C1F06F451DBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

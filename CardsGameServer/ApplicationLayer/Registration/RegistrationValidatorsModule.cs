@@ -1,9 +1,9 @@
 ﻿using Autofac;
-using System;
+using CardsGameServer.ApplicationLayer.Models;
+using CardsGameServer.ApplicationLayer.Validation;
+using CardsGameServer.ApplicationLayer.Validation.Game;
+using FluentValidation;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CardsGameServer.ApplicationLayer.Registration
 {
@@ -11,15 +11,16 @@ namespace CardsGameServer.ApplicationLayer.Registration
     {
         protected override void Load(ContainerBuilder objContainer)
         {
-           /* objContainer.RegisterType<ValidatorFactory>()
-                   .As<IValidatorFactory>()
-                   .SingleInstance();
 
-            objContainer.RegisterType<StorageCreateValidator>()
-                        .Keyed<IValidator>(typeof(StorageCreateModel))
+            objContainer.RegisterType<GameListCreateValidator>()
+                        .Keyed<IValidator>("gameCreateModels")
                         .As<IValidator>()
-                        .InstancePerLifetimeScope();*/
+                        .InstancePerLifetimeScope();
 
+            objContainer.RegisterType<GameUpdateValidator>()
+                       .Keyed<IValidator>("gameUpdateModel")
+                       .As<IValidator>()
+                       .InstancePerLifetimeScope();
 
             base.Load(objContainer);
         }

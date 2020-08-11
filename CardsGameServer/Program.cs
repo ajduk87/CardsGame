@@ -11,6 +11,12 @@ namespace CardsGameServer
             {
                 Console.WriteLine("Cards Game Server is running.");
 
+                Console.WriteLine("Repositories is creating... ");
+
+                RepositoryFactory.Factory.Initialize(new RepositoryFactory.DbFactory(RepositoryFactory.Finder.FindRepositoryTypes("CardsGameServer")));
+
+                Console.WriteLine("Repositories was created... ");
+
                 Console.WriteLine("Press any key to shutdown the server.");
                 Console.ReadLine();
             }
