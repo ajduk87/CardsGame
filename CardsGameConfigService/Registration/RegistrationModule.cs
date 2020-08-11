@@ -7,8 +7,8 @@ namespace CardsGameConfigService.Registration
     {
         protected override void Load(ContainerBuilder objContainer)
         {
-            objContainer.RegisterType<IJsonSerializer>()
-                        .As<JsonSerializer>();
+            objContainer.RegisterType<JsonSerializer>()
+                        .As<IJsonSerializer>();
 
             base.Load(objContainer);
         }
