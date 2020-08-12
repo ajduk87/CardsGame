@@ -4,6 +4,11 @@
     {
         public int Content;
 
+        public CardValue()
+        {
+            this.Content = 0;
+        }
+
         public CardValue(int Content)
         {
             this.Content = Content;

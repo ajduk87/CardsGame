@@ -8,12 +8,17 @@ namespace CardsGameServer.DomainLayer.Entities.ValueObjects.GameSteps
 {
     public class CardsLeft : ValueObject<CardsLeft>
     {
-        public int Content;
+        public int Content { get; }
 
         public CardsLeft(int Content)
         {
             this.Content = Content;
         }
+        public CardsLeft Add(CardsLeft otherCardsLeft)
+        {
+            return new CardsLeft(this.Content + otherCardsLeft.Content);
+        }
+
 
         public static explicit operator CardsLeft(int cardsLeft)
         {

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace CardsGameServer.DomainLayer.Entities.ValueObjects
 {
-    public class NewPile : ValueObject<NewPile>
+    public class NewPile : ValueObject<NewPile>, IPile
     {
         public List<Card> Cards { get; }
+
 
         public NewPile()
         {

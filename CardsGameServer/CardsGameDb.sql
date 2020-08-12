@@ -91,6 +91,8 @@ CREATE TABLE cardsgame.gamesteps
 	PlayerId integer UNIQUE NOT NULL,
 	CardValue integer NOT NULL,
 	IsStepWinner boolean NULL,
+	DiscardPile varchar(1000) NOT NULL,
+	PlayingPile varchar(1000) NOT NULL,
 	CardsLeft integer NOT NULL
 	
 );

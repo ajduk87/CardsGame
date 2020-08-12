@@ -217,6 +217,8 @@
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\IsStepWinner.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Games\IsWinner.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Games\NumberOfSteps.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\ICardsCounter.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\IPile.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\NewPile.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\PlayingPile.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Shared\Id.cs" />
@@ -231,8 +233,10 @@
     <Compile Include="DomainLayer\Registration\RegistrationModule.cs" />
     <Compile Include="DomainLayer\Repositories\GameProgressRepository.cs" />
     <Compile Include="DomainLayer\Repositories\GameRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\GameStepRepository.cs" />
     <Compile Include="DomainLayer\Repositories\IGameProgressRepository.cs" />
     <Compile Include="DomainLayer\Repositories\IGameRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\IGameStepRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Sql\GameProgressQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -243,10 +247,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GameQueries.resx</DependentUpon>
     </Compile>
+    <Compile Include="DomainLayer\Repositories\Sql\GameStepQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameStepQueries.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DomainLayer\Services\CroupierService.cs" />
     <Compile Include="DomainLayer\Services\GameProgressService.cs" />
     <Compile Include="DomainLayer\Services\GameService.cs" />
+    <Compile Include="DomainLayer\Services\GameStepService.cs" />
+    <Compile Include="DomainLayer\Services\ICroupierService.cs" />
     <Compile Include="DomainLayer\Services\IGameProgressService.cs" />
     <Compile Include="DomainLayer\Services\IGameService.cs" />
+    <Compile Include="DomainLayer\Services\IGameStepService.cs" />
+    <Compile Include="DomainLayer\Services\IShiffleService.cs" />
+    <Compile Include="DomainLayer\Services\ShiffleService.cs" />
     <Compile Include="IDatabaseConnectionFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -271,6 +286,10 @@
     <EmbeddedResource Include="DomainLayer\Repositories\Sql\GameQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GameQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DomainLayer\Repositories\Sql\GameStepQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GameStepQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

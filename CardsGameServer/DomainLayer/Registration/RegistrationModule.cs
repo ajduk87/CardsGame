@@ -15,6 +15,18 @@ namespace CardsGameServer.DomainLayer.Registration
                         .Keyed<IGameProgressService>(typeof(GameProgressService))
                         .As<IGameProgressService>();
 
+            objContainer.RegisterType<ShiffleService>()
+                        .Keyed<IShiffleService>(typeof(ShiffleService))
+                        .As<IShiffleService>();
+
+            objContainer.RegisterType<CroupierService>()
+                        .Keyed<ICroupierService>(typeof(CroupierService))
+                        .As<ICroupierService>();
+
+            objContainer.RegisterType<GameStepService>()
+                       .Keyed<IGameStepService>(typeof(GameStepService))
+                       .As<IGameStepService>();
+
             base.Load(objContainer);
         }
     }
