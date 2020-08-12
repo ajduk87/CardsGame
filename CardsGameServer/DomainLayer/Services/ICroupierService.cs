@@ -11,7 +11,7 @@ namespace CardsGameServer.DomainLayer.Services
 {
     public interface ICroupierService
     {
-        IEnumerable<GameStep> SplitDeck(List<Card> cards, IEnumerable<Player> players);
+        IEnumerable<Player> SplitDeck(List<Card> cards, IEnumerable<Player> players);
         void CollectCardsForThisRoundFromPlayers(IEnumerable<Player> players);
     }
 }

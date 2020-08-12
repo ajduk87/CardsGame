@@ -11,5 +11,6 @@ namespace CardsGameServer.ApplicationLayer.Models
         public string Name { get; set; }
         public int NumberOfPlayers { get; set; }
         public int PlayerId { get; set; }
+        public string PlayerName { get; set; }
     }
 }

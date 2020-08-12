@@ -60,5 +60,12 @@ namespace CardsGameServerQuery.Controllers
 
             }
         }
+
+        [HttpGet]
+        [Route("api/getcards/{gamename}")]
+        public IEnumerable<PlayerStatusDto> GameRoundProcess(string gamename)
+        {
+            return new List<PlayerStatusDto>();
+        }
     }
 }

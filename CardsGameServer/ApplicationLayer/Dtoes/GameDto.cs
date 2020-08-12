@@ -10,6 +10,7 @@ namespace CardsGameServer.ApplicationLayer.Dtoes
     {
         public string Name { get; set; }
         public int PlayerId { get; set; }
+        public string PlayerName { get; set; }
         public int NumberOfSteps { get; set; }
         public bool? IsWinner { get; set; }
     }

@@ -69,5 +69,16 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
                 return ResourceManager.GetString("Select", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE cardsgame.players
+        ///SET name = @name, topcard = @topcard, discardpile = @discardpile, playingpile = @playingpile
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
     }
 }

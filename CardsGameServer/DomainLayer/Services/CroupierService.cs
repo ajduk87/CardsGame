@@ -20,29 +20,7 @@ namespace CardsGameServer.DomainLayer.Services
             this.tableService = tableService;
         }
 
-        private IEnumerable<GameStep> MakeGameSteps(IEnumerable<Player> players)
-        {
-            List<GameStep> gamesteps = new List<GameStep>();
-
-            players.ForEach(player =>
-                            {
-                                GameStep gameStep = new GameStep
-                                {
-                                    PlayerId = player.Id,
-                                    IsStepWinner = new IsStepWinner(false),
-                                    CardValue = new CardValue(),
-                                    CardsLeft = player.PlayingPile.Count(),
-                                    PlayingPile = player.PlayingPile,
-                                    DiscardPile = new DiscardPile()
-                                };
-                                gamesteps.Add(gameStep);
-                            });
-
-            return gamesteps;
-        }
-
-
-        public IEnumerable<GameStep> SplitDeck(List<Card> cards, IEnumerable<Player> players)
+        public IEnumerable<Player> SplitDeck(List<Card> cards, IEnumerable<Player> players)
         {
             int waitingPlayersNumber = players.ToList().Count;
 
@@ -52,10 +30,11 @@ namespace CardsGameServer.DomainLayer.Services
                               cards.RemoveRange(0, cards.Count / waitingPlayersNumber);
                               waitingPlayersNumber--;
                               player.PlayingPile = new PlayingPile(playingCards);
+                              player.DiscardPile = new DiscardPile();
+                              player.TopCard = new Card();
                           });
-            IEnumerable<GameStep> gamesteps = MakeGameSteps(players);
 
-            return gamesteps;
+            return players;
         }
 
         public void CollectCardsForThisRoundFromPlayers(IEnumerable<Player> players)

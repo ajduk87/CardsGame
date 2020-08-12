@@ -121,4 +121,9 @@
     <value>SELECT * FROM cardsgame.players
 where id = @id</value>
   </data>
+  <data name="Update" xml:space="preserve">
+    <value>UPDATE cardsgame.players
+SET name = @name, topcard = @topcard, discardpile = @discardpile, playingpile = @playingpile
+WHERE id = @id</value>
+  </data>
 </root>

@@ -19,9 +19,7 @@ namespace CardsGameServer.DomainLayer.Mappings.Profiles
                 .ForMember(dest => dest.TopCard, opt => opt.MapFrom(src => MakeCard(src.CardValue, src.CardSuit)))
                 .ForMember(dest => dest.PlayingPile, opt => opt.MapFrom(src => MakePlayingCards(src.PlayingPile)))
                 .ForMember(dest => dest.DiscardPile, opt => opt.MapFrom(src => MakeDiscardCards(src.DiscardPile)))
-                .ForMember(dest => dest.Name, opt => opt.Ignore())
-                .ForMember(dest => dest.NumberOfWins, opt => opt.Ignore())
-                .ForMember(dest => dest.IsStepWinner, opt => opt.Ignore());
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.PlayerName));
 
         }
 

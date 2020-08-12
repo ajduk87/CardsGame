@@ -34,9 +34,9 @@ CREATE TABLE cardsgame.players
 (
 	Id integer NOT NULL   DEFAULT NEXTVAL(('cardsgame."players_id_seq"'::text)::regclass),
 	Name varchar(500) NOT NULL,
-	NumberOfWins integer NOT NULL,
-	DiscardPile varchar(1000) NOT NULL,
-	PlayingPile varchar(1000) NOT NULL
+	TopCard varchar(100),
+	DiscardPile varchar(1000),
+	PlayingPile varchar(1000) 
 	
 );
 ALTER TABLE cardsgame.players ADD CONSTRAINT PK_Players
@@ -90,11 +90,9 @@ DROP TABLE IF EXISTS cardsgame.gamesteps CASCADE;
 CREATE TABLE cardsgame.gamesteps
 (
 	Id integer NOT NULL   DEFAULT NEXTVAL(('cardsgame."players_id_seq"'::text)::regclass),
-	PlayerId integer UNIQUE NOT NULL,
+	PlayerId integer NOT NULL,
 	CardValue integer NOT NULL,
 	IsStepWinner boolean NULL,
-	DiscardPile varchar(1000) NOT NULL,
-	PlayingPile varchar(1000) NOT NULL,
 	CardsLeft integer NOT NULL
 	
 );

@@ -12,5 +12,6 @@ namespace CardsGameServer.DomainLayer.Repositories
     public interface IPlayerRepository : IRepository
     {
         Player SelectById(IDbConnection connection, long id, IDbTransaction transaction = null);
+        void Update(IDbConnection connection, Player player, IDbTransaction transaction = null);
     }
 }

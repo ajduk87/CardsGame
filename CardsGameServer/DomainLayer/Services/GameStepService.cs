@@ -28,6 +28,13 @@ namespace CardsGameServer.DomainLayer.Services
             return gameStepsIds;
         }
 
+        public void UpdateSteps(IDbConnection connection, IEnumerable<GameStep> gameSteps, IDbTransaction transaction = null) =>
+            gameSteps.ForEach(gameStep =>
+            {
+                this.gameStepRepository.Update(connection, gameStep, transaction);
+            });
+
+
         public void ConnectStepsToGame(IDbConnection connection, IEnumerable<int> stepIds, Game game, IDbTransaction transaction = null) =>
             stepIds.ForEach(stepId =>
                                     {

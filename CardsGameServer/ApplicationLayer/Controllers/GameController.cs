@@ -28,7 +28,7 @@ namespace CardsGameServer.ApplicationLayer.Controllers
         [ValidateModelStateFilter]
         public HttpResponseMessage MakeNewGame(IEnumerable<GameCreateModel> gameCreateModels)
         {
-            IEnumerable<GameDto> gameDtoes = this.mapper.Map< IEnumerable<GameCreateModel>, IEnumerable<GameDto>>(gameCreateModels);
+            IEnumerable<GameDto> gameDtoes = this.mapper.Map<IEnumerable<GameCreateModel>, IEnumerable<GameDto>>(gameCreateModels);
             this.gameAppService.MakeNewGame(gameDtoes);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
@@ -40,6 +40,16 @@ namespace CardsGameServer.ApplicationLayer.Controllers
         {
             GameDto gameDto = this.mapper.Map<GameUpdateModel, GameDto>(gameUpdateModel);
             this.gameAppService.ChangeExisitngGame(gameDto);
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
+        [HttpPost]
+        [Route("api/startround")]
+        //[ValidateModelStateFilter]
+        public HttpResponseMessage GameRoundStart(IEnumerable<PlayerStatusModel> playerStatusModels)
+        {
+            IEnumerable<PlayerStatusDto> playerStatusDtoes = this.mapper.Map<IEnumerable<PlayerStatusModel>, IEnumerable<PlayerStatusDto>>(playerStatusModels);
+            this.gameAppService.StartRound(playerStatusDtoes);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 

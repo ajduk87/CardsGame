@@ -11,6 +11,9 @@ namespace CardsGameServer.DomainLayer.Services
 {
     public interface IPlayerService
     {
-        void PickWinningCards(IEnumerable<Player> allplayers, IEnumerable<GameStep> gameSteps);
+        void SetupCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null);
+        void SetCardsToWinner(IDbConnection connection, Player winner, IDbTransaction transaction = null);
+        IEnumerable<GameStep> StartTheGame(IEnumerable<Player> players);
+        Player PickWinner(IEnumerable<Player> allplayers, IEnumerable<GameStep> gameSteps);
     }
 }

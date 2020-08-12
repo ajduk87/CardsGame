@@ -12,6 +12,12 @@ namespace CardsGameServer.DomainLayer.Entities.ValueObjects
         public CardValue Value { get; }
         public string Suit { get; }
 
+        public Card()
+        {
+            this.Value = new CardValue(1);
+            this.Suit = " .step";
+        }
+
         public Card(CardValue Value, string Suit)
         {
             this.Value = Value;

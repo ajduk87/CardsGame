@@ -2,6 +2,7 @@
 using CardsGameServer.DomainLayer.Entities.GamesEntities;
 using CardsGameServer.DomainLayer.Entities.PlayerEntities;
 using CardsGameServer.DomainLayer.Entities.ValueObjects;
+using CardsGameServer.DomainLayer.Entities.ValueObjects.GameSteps;
 using CardsGameServer.DomainLayer.Services;
 using Npgsql;
 using System;
@@ -47,7 +48,8 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
             IEnumerable<Player> players = this.dtoToEntityMapper.MapList<IEnumerable<GameDto>, IEnumerable<Player>>(gameDtoes);
 
             List<Card> shuffledCards = this.shiffleService.Shiffle(new NewPile());
-            IEnumerable<GameStep> gameSteps = this.croupierService.SplitDeck(shuffledCards, players);
+            IEnumerable<Player> playersWithCards = this.croupierService.SplitDeck(shuffledCards, players);
+            IEnumerable<GameStep> gameSteps = this.playerService.StartTheGame(playersWithCards);
 
             using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
             {
@@ -56,6 +58,7 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
                 {
                     try
                     {
+                        this.playerService.SetupCards(connection, playersWithCards, transaction);
                         this.gameProgressService.InsertProgress(connection, gameProgress, transaction);
                         this.gameService.InsertGame(connection, games, transaction);
                         IEnumerable<int> gamestepsIds = this.gameStepService.InsertSteps(connection, gameSteps, transaction);
@@ -80,16 +83,62 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
             }
         }
 
-        public void ProcessRound(IEnumerable<PlayerStatusDto> playerStatusDtoes)
+
+        public void StartRound(IEnumerable<PlayerStatusDto> playerStatusDtoes)
         {
             IEnumerable<GameStep> gameSteps = this.dtoToEntityMapper.MapList<IEnumerable<PlayerStatusDto>, IEnumerable<GameStep>>(playerStatusDtoes);
             IEnumerable<Player> players = this.dtoToEntityMapper.MapList<IEnumerable<PlayerStatusDto>, IEnumerable<Player>>(playerStatusDtoes);
 
             this.croupierService.CollectCardsForThisRoundFromPlayers(players);
+
+            using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        this.playerService.SetupCards(connection, players, transaction);
+                        this.gameStepService.InsertSteps(connection, gameSteps, transaction);
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        Console.Write(ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void ProcessRound(IEnumerable<PlayerStatusDto> playerStatusDtoes)
+        {
+            IEnumerable<GameStep> gameSteps = this.dtoToEntityMapper.MapList<IEnumerable<PlayerStatusDto>, IEnumerable<GameStep>>(playerStatusDtoes);
+            IEnumerable<Player> players = this.dtoToEntityMapper.MapList<IEnumerable<PlayerStatusDto>, IEnumerable<Player>>(playerStatusDtoes);
+
             IEnumerable<GameStep> evaulatedGameSteps = this.evaulationService.Evaulate(gameSteps);
             if (evaulatedGameSteps.Any(step => step.IsStepWinner == true))
             {
-                this.playerService.PickWinningCards(players, evaulatedGameSteps);
+                Player winner =this.playerService.PickWinner(players, evaulatedGameSteps);
+
+                using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
+                {
+                    connection.Open();
+                    using (var transaction = connection.BeginTransaction())
+                    {
+                        try
+                        {
+                            this.playerService.SetCardsToWinner(connection, winner);
+                            this.gameStepService.UpdateSteps(connection, evaulatedGameSteps, transaction);
+                            transaction.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            Console.Write(ex.Message);
+                        }
+                    }
+                }
             }
 
         }

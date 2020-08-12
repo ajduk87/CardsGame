@@ -14,8 +14,18 @@ namespace CardsGameServer.DomainLayer.Repositories
                 playerid = gameStep.PlayerId.Content,
                 cardvalue = gameStep.CardValue.Content,
                 isstepwinner = gameStep.IsStepWinner.Content,
-                discardpile = gameStep.DiscardPile.ToString(),
-                playingpile = gameStep.PlayingPile.ToString(),
+                cardsleft = gameStep.CardsLeft.Content
+            }, transaction);
+        }
+
+        public void Update(IDbConnection connection, GameStep gameStep, IDbTransaction transaction = null)
+        {
+            connection.Execute(GameStepQueries.Update, new
+            {
+                id = gameStep.Id.Content,
+                playerid = gameStep.PlayerId.Content,
+                cardvalue = gameStep.CardValue.Content,
+                isstepwinner = gameStep.IsStepWinner.Content,
                 cardsleft = gameStep.CardsLeft.Content
             }, transaction);
         }

@@ -61,8 +61,8 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO cardsgame.gamesteps(playerid, cardvalue, isstepwinner, discardpile, playingpile, cardsleft)
-        ///VALUES(@playerid, @cardvalue, @isstepwinner, @discardpile, @playingpile, @cardsleft) RETURNING id;.
+        ///   Looks up a localized string similar to INSERT INTO cardsgame.gamesteps(playerid, cardvalue, isstepwinner, cardsleft)
+        ///VALUES(@playerid, @cardvalue, @isstepwinner, @cardsleft) RETURNING id;.
         /// </summary>
         internal static string Insert {
             get {
@@ -77,6 +77,17 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         internal static string InsertChild {
             get {
                 return ResourceManager.GetString("InsertChild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE cardsgame.gamesteps
+        ///SET playerid = @playerid, cardvalue = @cardvalue, isstepwinner = @isstepwinner, cardsleft = @cardsleft
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
             }
         }
     }
