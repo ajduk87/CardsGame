@@ -167,14 +167,20 @@
   <ItemGroup>
     <Compile Include="ApplicationLayer\Controllers\BaseController.cs" />
     <Compile Include="ApplicationLayer\Controllers\GameController.cs" />
+    <Compile Include="ApplicationLayer\Controllers\PlayerController.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Dto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\GameDto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\GameRoundProcessDto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\GameStepDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Parameter.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\PlayerDto.cs" />
     <Compile Include="ApplicationLayer\Enums\CardSuit.cs" />
     <Compile Include="ApplicationLayer\Extensions\IEnumerableExtensions.cs" />
     <Compile Include="ApplicationLayer\Mappings\GameProfile.cs" />
     <Compile Include="ApplicationLayer\Models\GameBaseModel.cs" />
     <Compile Include="ApplicationLayer\Models\GameCreateModel.cs" />
+    <Compile Include="ApplicationLayer\Models\GameRoundProcessModel.cs" />
+    <Compile Include="ApplicationLayer\Models\GameStepModel.cs" />
     <Compile Include="ApplicationLayer\Models\GameUpdateModel.cs" />
     <Compile Include="ApplicationLayer\Registration\Containers\RegistrationValidators.cs" />
     <Compile Include="ApplicationLayer\Registration\RegistrationModule.cs" />
@@ -184,6 +190,8 @@
     <Compile Include="ApplicationLayer\Services\Configuration\IConfigurationService.cs" />
     <Compile Include="ApplicationLayer\Services\GameServices\GameAppService.cs" />
     <Compile Include="ApplicationLayer\Services\GameServices\IGameAppService.cs" />
+    <Compile Include="ApplicationLayer\Services\PlayerServices\IPlayerServices.cs" />
+    <Compile Include="ApplicationLayer\Services\PlayerServices\PlayerServices.cs" />
     <Compile Include="ApplicationLayer\Validation\Game\GameListCreateValidator.cs" />
     <Compile Include="ApplicationLayer\Validation\Game\GameUpdateValidator.cs" />
     <Compile Include="ApplicationLayer\Validation\ValidateModelStateFilter.cs" />
@@ -193,6 +201,7 @@
     <Compile Include="DomainLayer\Entities\Entity.cs" />
     <Compile Include="DomainLayer\Entities\EntityFactory.cs" />
     <Compile Include="DomainLayer\Entities\GamesEntities\Game.cs" />
+    <Compile Include="DomainLayer\Entities\GamesEntities\GameProgress.cs" />
     <Compile Include="DomainLayer\Entities\GamesEntities\GamesGameStep.cs" />
     <Compile Include="DomainLayer\Entities\GamesEntities\GamesNumberOfPlayers.cs" />
     <Compile Include="DomainLayer\Entities\GamesEntities\GameStep.cs" />
@@ -201,6 +210,7 @@
     <Compile Include="DomainLayer\Entities\ScoreEntities\Score.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Card.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\DiscardPile.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\GameProgress\IsInProgress.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GamesNumberOfPlayers\NumberOfPlayers.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\CardsLeft.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\CardValue.cs" />
@@ -219,14 +229,23 @@
     <Compile Include="DomainLayer\Mappings\Profiles\GameProfile.cs" />
     <Compile Include="DomainLayer\Mappings\IMapper.cs" />
     <Compile Include="DomainLayer\Registration\RegistrationModule.cs" />
+    <Compile Include="DomainLayer\Repositories\GameProgressRepository.cs" />
     <Compile Include="DomainLayer\Repositories\GameRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\IGameProgressRepository.cs" />
     <Compile Include="DomainLayer\Repositories\IGameRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Sql\GameProgressQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameProgressQueries.resx</DependentUpon>
+    </Compile>
     <Compile Include="DomainLayer\Repositories\Sql\GameQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameQueries.resx</DependentUpon>
     </Compile>
+    <Compile Include="DomainLayer\Services\GameProgressService.cs" />
     <Compile Include="DomainLayer\Services\GameService.cs" />
+    <Compile Include="DomainLayer\Services\IGameProgressService.cs" />
     <Compile Include="DomainLayer\Services\IGameService.cs" />
     <Compile Include="IDatabaseConnectionFactory.cs" />
     <Compile Include="Program.cs" />
@@ -245,6 +264,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DomainLayer\Repositories\Sql\GameProgressQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GameProgressQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="DomainLayer\Repositories\Sql\GameQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GameQueries.Designer.cs</LastGenOutput>

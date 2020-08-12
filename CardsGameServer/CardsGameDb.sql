@@ -6,6 +6,8 @@ DROP SEQUENCE IF EXISTS cardsgame.scores_id_seq;
 
 DROP SEQUENCE IF EXISTS cardsgame.games_id_seq;
 
+DROP SEQUENCE IF EXISTS cardsgame.gamesprogress_id_seq;
+
 DROP SEQUENCE IF EXISTS cardsgame.gamesteps_id_seq;
 
 DROP SEQUENCE IF EXISTS cardsgame.shuffleddeck_id_seq;
@@ -17,6 +19,8 @@ CREATE SEQUENCE cardsgame.players_id_seq INCREMENT 1 START 1;
 CREATE SEQUENCE cardsgame.scores_id_seq INCREMENT 1 START 1;
 
 CREATE SEQUENCE cardsgame.games_id_seq INCREMENT 1 START 1;
+
+CREATE SEQUENCE cardsgame.gamesprogress_id_seq INCREMENT 1 START 1;
 
 CREATE SEQUENCE cardsgame.gamesteps_id_seq INCREMENT 1 START 1;
 
@@ -65,6 +69,19 @@ ALTER TABLE cardsgame.games ADD CONSTRAINT PK_Games
 	PRIMARY KEY (Id);
 ALTER TABLE cardsgame.games ADD CONSTRAINT FK_Games_Players
 	FOREIGN KEY (PlayerId) REFERENCES cardsgame.players (Id) ON DELETE No Action ON UPDATE No Action;
+	
+DROP TABLE IF EXISTS cardsgame.gamesprogress CASCADE;
+
+CREATE TABLE cardsgame.gamesprogress
+(
+	Id integer NOT NULL   DEFAULT NEXTVAL(('cardsgame."gamesprogress_id_seq"'::text)::regclass),
+	GameName varchar(500) NOT NULL,
+	IsInProgress boolean NULL
+	
+);
+ALTER TABLE cardsgame.gamesprogress ADD CONSTRAINT PK_GamesProgress
+	PRIMARY KEY (Id);
+	
 
 DROP TABLE IF EXISTS cardsgame.gamesteps CASCADE;
 
@@ -116,17 +133,16 @@ DROP TABLE IF EXISTS cardsgame.gamesgamesteps CASCADE;
 
 CREATE TABLE cardsgame.gamesgamesteps
 (
-	GameId integer NOT NULL,
+	GameName varchar(500) NOT NULL,
 	GameStepId integer NOT NULL
 );
 
 
-CREATE INDEX IXFK_GamesGameSteps_Games ON cardsgame.gamesgamesteps (GameId ASC);
+CREATE INDEX IXFK_GamesGameSteps_Games ON cardsgame.gamesgamesteps (GameName ASC);
 
 CREATE INDEX IXFK_GamesGameSteps_GameSteps ON cardsgame.gamesgamesteps (GameStepId ASC);
 
-ALTER TABLE cardsgame.gamesgamesteps ADD CONSTRAINT FK_GamesGameSteps_Games
-	FOREIGN KEY (GameId) REFERENCES cardsgame.games (Id) ON DELETE No Action ON UPDATE No Action;
+
 ALTER TABLE cardsgame.gamesgamesteps ADD CONSTRAINT FK_GamesGameSteps_Gamesteps
 	FOREIGN KEY (GameStepId) REFERENCES cardsgame.gamesteps (Id) ON DELETE No Action ON UPDATE No Action;
 -- create table connection END

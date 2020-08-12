@@ -11,6 +11,10 @@ namespace CardsGameServer.DomainLayer.Registration
                         .Keyed<IGameService>(typeof(GameService))
                         .As<IGameService>();
 
+            objContainer.RegisterType<GameProgressService>()
+                        .Keyed<IGameProgressService>(typeof(GameProgressService))
+                        .As<IGameProgressService>();
+
             base.Load(objContainer);
         }
     }

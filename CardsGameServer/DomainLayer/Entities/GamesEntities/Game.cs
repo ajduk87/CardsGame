@@ -5,7 +5,6 @@ namespace CardsGameServer.DomainLayer.Entities.GamesEntities
 {
     public class Game : Entity
     {
-        public Id Id { get; set; }
         public Name Name { get; set; }
         public Id PlayerId { get; set; }
         public NumberOfSteps NumberOfSteps { get; set; }

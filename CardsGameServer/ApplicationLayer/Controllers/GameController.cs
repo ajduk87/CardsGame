@@ -42,5 +42,15 @@ namespace CardsGameServer.ApplicationLayer.Controllers
             this.gameAppService.ChangeExisitngGame(gameDto);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
+
+        [HttpPost]
+        [Route("api/processround")]
+        [ValidateModelStateFilter]
+        public HttpResponseMessage GameRoundProcess(GameRoundProcessModel gameRoundProcessModel)
+        {
+            //IEnumerable<GameDto> gameDtoes = this.mapper.Map<IEnumerable<GameCreateModel>, IEnumerable<GameDto>>(gameCreateModels);
+            //this.gameAppService.MakeNewGame(gameDtoes);
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
     }
 }

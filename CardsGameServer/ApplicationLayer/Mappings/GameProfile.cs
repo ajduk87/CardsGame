@@ -15,6 +15,9 @@ namespace CardsGameServer.ApplicationLayer.Mappings
         {
             CreateMap<GameCreateModel, GameDto>();
             CreateMap<GameUpdateModel, GameDto>();
+
+            CreateMap<GameStepModel, GameStepDto>();
+            CreateMap<GameRoundProcessModel, GameRoundProcessDto>();
         }
 
 
