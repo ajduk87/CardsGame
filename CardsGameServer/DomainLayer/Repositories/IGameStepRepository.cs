@@ -11,6 +11,7 @@ namespace CardsGameServer.DomainLayer.Repositories
 {
     public interface IGameStepRepository : IRepository
     {
-        void Insert(IDbConnection connection, GameStep gameStep, IDbTransaction transaction = null);
+        int Insert(IDbConnection connection, GameStep gameStep, IDbTransaction transaction = null);
+        void InsertChild(IDbConnection connection, GamesGameStep gamesGameStep, IDbTransaction transaction = null);
     }
 }

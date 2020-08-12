@@ -49,7 +49,8 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
                     {
                         this.gameProgressService.InsertProgress(connection, gameProgress, transaction);
                         this.gameService.InsertGame(connection, games, transaction);
-                        this.gameStepService.InsertSteps(connection, gameSteps, transaction);
+                        IEnumerable<int> gamestepsIds = this.gameStepService.InsertSteps(connection, gameSteps, transaction);
+                        this.gameStepService.ConnectStepsToGame(connection, gamestepsIds, games.ToList().First());
                         transaction.Commit();
                     }
                     catch (Exception ex)

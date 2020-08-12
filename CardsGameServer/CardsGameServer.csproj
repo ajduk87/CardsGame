@@ -198,6 +198,7 @@
     <Compile Include="ApplicationLayer\Validation\ValidatorFactory.cs" />
     <Compile Include="ContainerInitializer.cs" />
     <Compile Include="DatabaseConnectionFactory.cs" />
+    <Compile Include="DomainLayer\Entities\AggregateRoot.cs" />
     <Compile Include="DomainLayer\Entities\Entity.cs" />
     <Compile Include="DomainLayer\Entities\EntityFactory.cs" />
     <Compile Include="DomainLayer\Entities\GamesEntities\Game.cs" />

@@ -62,11 +62,21 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         
         /// <summary>
         ///   Looks up a localized string similar to INSERT INTO cardsgame.gamesteps(playerid, cardvalue, isstepwinner, discardpile, playingpile, cardsleft)
-        ///VALUES(@playerid, @cardvalue, @isstepwinner, @discardpile, @playingpile, @cardsleft).
+        ///VALUES(@playerid, @cardvalue, @isstepwinner, @discardpile, @playingpile, @cardsleft) RETURNING id;.
         /// </summary>
         internal static string Insert {
             get {
                 return ResourceManager.GetString("Insert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO cardsgame.gamesgamesteps(gamename, gamestepid)
+        ///VALUES(@gamename, @gamestepid).
+        /// </summary>
+        internal static string InsertChild {
+            get {
+                return ResourceManager.GetString("InsertChild", resourceCulture);
             }
         }
     }

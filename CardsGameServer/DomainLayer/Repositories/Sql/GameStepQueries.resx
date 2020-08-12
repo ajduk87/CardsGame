@@ -119,6 +119,10 @@
   </resheader>
   <data name="Insert" xml:space="preserve">
     <value>INSERT INTO cardsgame.gamesteps(playerid, cardvalue, isstepwinner, discardpile, playingpile, cardsleft)
-VALUES(@playerid, @cardvalue, @isstepwinner, @discardpile, @playingpile, @cardsleft)</value>
+VALUES(@playerid, @cardvalue, @isstepwinner, @discardpile, @playingpile, @cardsleft) RETURNING id;</value>
+  </data>
+  <data name="InsertChild" xml:space="preserve">
+    <value>INSERT INTO cardsgame.gamesgamesteps(gamename, gamestepid)
+VALUES(@gamename, @gamestepid)</value>
   </data>
 </root>
