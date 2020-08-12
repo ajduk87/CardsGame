@@ -7,27 +7,22 @@ using CardsGameServer.DomainLayer.Entities.ValueObjects;
 using CardsGameServer.DomainLayer.Entities.ValueObjects.GameSteps;
 using System.Collections.Generic;
 
+
 namespace CardsGameServer.DomainLayer.Mappings.Profiles
 {
-    public class GameProfile : Profile
+    public class PlayerProfile : Profile
     {
-        public GameProfile()
+        public PlayerProfile()
         {
-            CreateMap<GameDto, Game>()
-                .ForMember(dest => dest.IsWinner, opt => opt.MapFrom(src => MapIsWinnerProperty(src.IsWinner)));
+            CreateMap<PlayerStatusDto, Player>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.PlayerId))
+                .ForMember(dest => dest.TopCard, opt => opt.MapFrom(src => MakeCard(src.CardValue, src.CardSuit)))
+                .ForMember(dest => dest.PlayingPile, opt => opt.MapFrom(src => MakePlayingCards(src.PlayingPile)))
+                .ForMember(dest => dest.DiscardPile, opt => opt.MapFrom(src => MakeDiscardCards(src.DiscardPile)))
+                .ForMember(dest => dest.Name, opt => opt.Ignore())
+                .ForMember(dest => dest.NumberOfWins, opt => opt.Ignore())
+                .ForMember(dest => dest.IsStepWinner, opt => opt.Ignore());
 
-            CreateMap<GameDto, GameProgress>()
-                .ForMember(dest => dest.GameName, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.IsInProgress, opt => opt.MapFrom(src => src != null));
-
-            CreateMap<GameDto, Player>()
-               .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.PlayerId))
-               .ForMember(dest => dest.Name, opt => opt.Ignore());
-
-            CreateMap<PlayerStatusDto, GameStep>()
-              .ForMember(dest => dest.PlayingPile, opt => opt.MapFrom(src => MakePlayingCards(src.PlayingPile)))
-              .ForMember(dest => dest.DiscardPile, opt => opt.MapFrom(src => MakeDiscardCards(src.DiscardPile)))
-              .ForMember(dest => dest.IsStepWinner, opt => opt.MapFrom(src => new IsStepWinner(false)));
         }
 
         private List<Card> ConvertCardsContentToCards(string cardsContent)
@@ -64,9 +59,10 @@ namespace CardsGameServer.DomainLayer.Mappings.Profiles
             return new DiscardPile(cards);
         }
 
-        private bool MapIsWinnerProperty(bool? IsWinner)
+
+        private Card MakeCard(int cardValue, string cardSuit)
         {
-            return IsWinner.HasValue ? true : false;
+            return new Card(new CardValue(cardValue), cardSuit);
         }
     }
 }

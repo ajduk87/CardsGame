@@ -34,7 +34,9 @@ CREATE TABLE cardsgame.players
 (
 	Id integer NOT NULL   DEFAULT NEXTVAL(('cardsgame."players_id_seq"'::text)::regclass),
 	Name varchar(500) NOT NULL,
-	NumberOfWins integer NOT NULL
+	NumberOfWins integer NOT NULL,
+	DiscardPile varchar(1000) NOT NULL,
+	PlayingPile varchar(1000) NOT NULL
 	
 );
 ALTER TABLE cardsgame.players ADD CONSTRAINT PK_Players

@@ -27,6 +27,18 @@ namespace CardsGameServer.DomainLayer.Registration
                        .Keyed<IGameStepService>(typeof(GameStepService))
                        .As<IGameStepService>();
 
+            objContainer.RegisterType<TableService>()
+                      .Keyed<ITableService>(typeof(TableService))
+                      .As<ITableService>();
+
+            objContainer.RegisterType<EvaulationService>()
+                      .Keyed<IEvaulationService>(typeof(EvaulationService))
+                      .As<IEvaulationService>();
+
+            objContainer.RegisterType<PlayerService>()
+                     .Keyed<IPlayerService>(typeof(PlayerService))
+                     .As<IPlayerService>();
+
             base.Load(objContainer);
         }
     }

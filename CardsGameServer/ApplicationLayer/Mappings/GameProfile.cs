@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CardsGameServer.ApplicationLayer.Dtoes;
+using CardsGameServer.ApplicationLayer.Enums;
 using CardsGameServer.ApplicationLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,15 @@ namespace CardsGameServer.ApplicationLayer.Mappings
             CreateMap<GameCreateModel, GameDto>();
             CreateMap<GameUpdateModel, GameDto>();
 
-            CreateMap<GameStepModel, GameStepDto>();
-            CreateMap<GameRoundProcessModel, GameRoundProcessDto>();
+            CreateMap<PlayerStatusModel, PlayerStatusDto>()
+                .ForMember(dest => dest.CardSuit, opt => opt.MapFrom(src => ConvertCardSuit(src.CardSuit)));
         }
 
-
+        private string ConvertCardSuit(int cardSuit)
+        {
+            CardSuit suit = (CardSuit)cardSuit;
+            return suit.ToString();
+        }
     }
 }
 

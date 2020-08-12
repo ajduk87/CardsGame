@@ -170,17 +170,16 @@
     <Compile Include="ApplicationLayer\Controllers\PlayerController.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Dto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\GameDto.cs" />
-    <Compile Include="ApplicationLayer\Dtoes\GameRoundProcessDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\GameStepDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Parameter.cs" />
     <Compile Include="ApplicationLayer\Dtoes\PlayerDto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\PlayerStatusDto.cs" />
     <Compile Include="ApplicationLayer\Enums\CardSuit.cs" />
     <Compile Include="ApplicationLayer\Extensions\IEnumerableExtensions.cs" />
     <Compile Include="ApplicationLayer\Mappings\GameProfile.cs" />
     <Compile Include="ApplicationLayer\Models\GameBaseModel.cs" />
     <Compile Include="ApplicationLayer\Models\GameCreateModel.cs" />
-    <Compile Include="ApplicationLayer\Models\GameRoundProcessModel.cs" />
-    <Compile Include="ApplicationLayer\Models\GameStepModel.cs" />
+    <Compile Include="ApplicationLayer\Models\PlayerStatusModel.cs" />
     <Compile Include="ApplicationLayer\Models\GameUpdateModel.cs" />
     <Compile Include="ApplicationLayer\Registration\Containers\RegistrationValidators.cs" />
     <Compile Include="ApplicationLayer\Registration\RegistrationModule.cs" />
@@ -231,6 +230,7 @@
     <Compile Include="DomainLayer\Mappings\DtoToEntityMapper.cs" />
     <Compile Include="DomainLayer\Mappings\Profiles\GameProfile.cs" />
     <Compile Include="DomainLayer\Mappings\IMapper.cs" />
+    <Compile Include="DomainLayer\Mappings\Profiles\PlayerProfile.cs" />
     <Compile Include="DomainLayer\Registration\RegistrationModule.cs" />
     <Compile Include="DomainLayer\Repositories\GameProgressRepository.cs" />
     <Compile Include="DomainLayer\Repositories\GameRepository.cs" />
@@ -238,6 +238,9 @@
     <Compile Include="DomainLayer\Repositories\IGameProgressRepository.cs" />
     <Compile Include="DomainLayer\Repositories\IGameRepository.cs" />
     <Compile Include="DomainLayer\Repositories\IGameStepRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\IPlayerRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\ITableSaver.cs" />
+    <Compile Include="DomainLayer\Repositories\PlayerRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Sql\GameProgressQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -253,16 +256,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GameStepQueries.resx</DependentUpon>
     </Compile>
+    <Compile Include="DomainLayer\Repositories\Sql\PlayerQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayerQueries.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DomainLayer\Repositories\TableSaver.cs" />
     <Compile Include="DomainLayer\Services\CroupierService.cs" />
+    <Compile Include="DomainLayer\Services\EvaulationService.cs" />
     <Compile Include="DomainLayer\Services\GameProgressService.cs" />
     <Compile Include="DomainLayer\Services\GameService.cs" />
     <Compile Include="DomainLayer\Services\GameStepService.cs" />
     <Compile Include="DomainLayer\Services\ICroupierService.cs" />
+    <Compile Include="DomainLayer\Services\IEvaulationService.cs" />
     <Compile Include="DomainLayer\Services\IGameProgressService.cs" />
     <Compile Include="DomainLayer\Services\IGameService.cs" />
     <Compile Include="DomainLayer\Services\IGameStepService.cs" />
+    <Compile Include="DomainLayer\Services\IPlayerService.cs" />
     <Compile Include="DomainLayer\Services\IShiffleService.cs" />
+    <Compile Include="DomainLayer\Services\ITableService.cs" />
+    <Compile Include="DomainLayer\Services\PlayerService.cs" />
     <Compile Include="DomainLayer\Services\ShiffleService.cs" />
+    <Compile Include="DomainLayer\Services\TableService.cs" />
     <Compile Include="IDatabaseConnectionFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -291,6 +306,10 @@
     <EmbeddedResource Include="DomainLayer\Repositories\Sql\GameStepQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GameStepQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DomainLayer\Repositories\Sql\PlayerQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlayerQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

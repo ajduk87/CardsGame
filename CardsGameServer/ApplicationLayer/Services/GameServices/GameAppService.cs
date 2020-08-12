@@ -17,18 +17,27 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
         private readonly IShiffleService shiffleService;
         private readonly ICroupierService croupierService;
         private readonly IGameStepService gameStepService;
+        private readonly ITableService tableService;
+        private readonly IEvaulationService evaulationService;
+        private readonly IPlayerService playerService;
 
         public GameAppService(IGameService gameService,
                               IGameProgressService gameProgressService,
                               IShiffleService shiffleService,
                               ICroupierService croupierService,
-                              IGameStepService gameStepService)
+                              IGameStepService gameStepService,
+                              ITableService tableService,
+                              IEvaulationService evaulationService,
+                              IPlayerService playerService)
         {
             this.gameService = gameService;
             this.gameProgressService = gameProgressService;
             this.shiffleService = shiffleService;
             this.croupierService = croupierService;
             this.gameStepService = gameStepService;
+            this.tableService = tableService;
+            this.evaulationService = evaulationService;
+            this.playerService = playerService;
         }
 
         public void MakeNewGame(IEnumerable<GameDto> gameDtoes)
@@ -71,8 +80,18 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
             }
         }
 
-        public void ProcessRound(GameRoundProcessDto GameRoundProcessDto)
+        public void ProcessRound(IEnumerable<PlayerStatusDto> playerStatusDtoes)
         {
+            IEnumerable<GameStep> gameSteps = this.dtoToEntityMapper.MapList<IEnumerable<PlayerStatusDto>, IEnumerable<GameStep>>(playerStatusDtoes);
+            IEnumerable<Player> players = this.dtoToEntityMapper.MapList<IEnumerable<PlayerStatusDto>, IEnumerable<Player>>(playerStatusDtoes);
+
+            this.croupierService.CollectCardsForThisRoundFromPlayers(players);
+            IEnumerable<GameStep> evaulatedGameSteps = this.evaulationService.Evaulate(gameSteps);
+            if (evaulatedGameSteps.Any(step => step.IsStepWinner == true))
+            {
+                this.playerService.PickWinningCards(players, evaulatedGameSteps);
+            }
+
         }
     }
 }

@@ -11,7 +11,7 @@ namespace CardsGameServer.DomainLayer.Entities.PlayerEntities
         public NumberOfWins NumberOfWins { get; set; }
         public Card TopCard { get; set; }
         public IsStepWinner IsStepWinner { get; set; }
-        public PlayingPile playingPile { get; set; }
-        public DiscardPile discardPile { get; set; }
+        public PlayingPile PlayingPile { get; set; }
+        public DiscardPile DiscardPile { get; set; }
     }
 }

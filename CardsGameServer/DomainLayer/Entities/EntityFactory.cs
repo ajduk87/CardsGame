@@ -20,6 +20,7 @@ namespace CardsGameServer.DomainLayer.Entities
             MapperConfiguration mapperConfiguration = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<GameProfile>();
+                cfg.AddProfile<PlayerProfile>();
             });
 
             return mapperConfiguration.CreateMapper();

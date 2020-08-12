@@ -7,6 +7,6 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
     {
         void MakeNewGame(IEnumerable<GameDto> gameDtoes);
         void ChangeExisitngGame(GameDto gameDto);
-        void ProcessRound(GameRoundProcessDto GameRoundProcessDto);
+        void ProcessRound(IEnumerable<PlayerStatusDto> playerStatusDtoes);
     }
 }

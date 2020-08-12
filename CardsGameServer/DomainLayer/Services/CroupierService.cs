@@ -13,6 +13,12 @@ namespace CardsGameServer.DomainLayer.Services
 {
     public class CroupierService : ICroupierService
     {
+        private readonly ITableService tableService;
+
+        public CroupierService(ITableService tableService)
+        {
+            this.tableService = tableService;
+        }
 
         private IEnumerable<GameStep> MakeGameSteps(IEnumerable<Player> players)
         {
@@ -25,8 +31,8 @@ namespace CardsGameServer.DomainLayer.Services
                                     PlayerId = player.Id,
                                     IsStepWinner = new IsStepWinner(false),
                                     CardValue = new CardValue(),
-                                    CardsLeft = player.playingPile.Count(),
-                                    PlayingPile = player.playingPile,
+                                    CardsLeft = player.PlayingPile.Count(),
+                                    PlayingPile = player.PlayingPile,
                                     DiscardPile = new DiscardPile()
                                 };
                                 gamesteps.Add(gameStep);
@@ -45,11 +51,18 @@ namespace CardsGameServer.DomainLayer.Services
                               List<Card> playingCards = cards.GetRange(0, cards.Count / waitingPlayersNumber);
                               cards.RemoveRange(0, cards.Count / waitingPlayersNumber);
                               waitingPlayersNumber--;
-                              player.playingPile = new PlayingPile(playingCards);
+                              player.PlayingPile = new PlayingPile(playingCards);
                           });
             IEnumerable<GameStep> gamesteps = MakeGameSteps(players);
 
             return gamesteps;
+        }
+
+        public void CollectCardsForThisRoundFromPlayers(IEnumerable<Player> players)
+        {
+            List<Card> cardsForTable = new List<Card>();
+            players.ForEach(player => cardsForTable.Add(player.TopCard));
+            this.tableService.PutOnTable(cardsForTable);
         }
     }
 }

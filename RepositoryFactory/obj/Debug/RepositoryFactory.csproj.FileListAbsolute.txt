@@ -3,4 +3,3 @@ D:\Sap\CardsGameServer\RepositoryFactory\bin\Debug\RepositoryFactory.pdb
 D:\Sap\CardsGameServer\RepositoryFactory\obj\Debug\RepositoryFactory.csproj.CoreCompileInputs.cache
 D:\Sap\CardsGameServer\RepositoryFactory\obj\Debug\RepositoryFactory.dll
 D:\Sap\CardsGameServer\RepositoryFactory\obj\Debug\RepositoryFactory.pdb
-D:\Sap\CardsGameServer\RepositoryFactory\obj\Debug\RepositoryFactory.csprojAssemblyReference.cache

@@ -45,11 +45,11 @@ namespace CardsGameServer.ApplicationLayer.Controllers
 
         [HttpPost]
         [Route("api/processround")]
-        [ValidateModelStateFilter]
-        public HttpResponseMessage GameRoundProcess(GameRoundProcessModel gameRoundProcessModel)
+        //[ValidateModelStateFilter]
+        public HttpResponseMessage GameRoundProcess(IEnumerable<PlayerStatusModel> playerStatusModels)
         {
-            //IEnumerable<GameDto> gameDtoes = this.mapper.Map<IEnumerable<GameCreateModel>, IEnumerable<GameDto>>(gameCreateModels);
-            //this.gameAppService.MakeNewGame(gameDtoes);
+            IEnumerable<PlayerStatusDto> playerStatusDtoes = this.mapper.Map<IEnumerable<PlayerStatusModel>, IEnumerable<PlayerStatusDto>>(playerStatusModels);
+            this.gameAppService.ProcessRound(playerStatusDtoes);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }

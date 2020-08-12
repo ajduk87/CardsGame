@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CardsGameServer.ApplicationLayer.Models
+namespace CardsGameServer.ApplicationLayer.Dtoes
 {
-    public class GameStepModel
+    public class PlayerStatusDto : Dto
     {
-        public int GameId { get; set; }
-        public int GameStepId { get; set; }
         public int PlayerId { get; set; }
         public int CardValue { get; set; }
         public string CardSuit { get; set; }
+        public string PlayingPile { get; set; }
+        public string DiscardPile { get; set; }
         public int CardsLeft { get; set; }
     }
 }
