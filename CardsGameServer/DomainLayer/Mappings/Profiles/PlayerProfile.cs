@@ -5,6 +5,7 @@ using CardsGameServer.DomainLayer.Entities.GamesEntities;
 using CardsGameServer.DomainLayer.Entities.PlayerEntities;
 using CardsGameServer.DomainLayer.Entities.ValueObjects;
 using CardsGameServer.DomainLayer.Entities.ValueObjects.GameSteps;
+using System;
 using System.Collections.Generic;
 
 
@@ -15,7 +16,10 @@ namespace CardsGameServer.DomainLayer.Mappings.Profiles
         public PlayerProfile()
         {
             CreateMap<PlayerDto, Player>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => $"{src.FirstName} ({src.MiddleName} {src.LastName})"));
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => $"{src.FirstName} ({src.MiddleName}) {src.LastName}"))
+                .ForMember(dest => dest.TopCard, opt => opt.MapFrom(src => MakeTopCard(src.TopCard)))
+                .ForMember(dest => dest.PlayingPile, opt => opt.MapFrom(src => MakePlayingPile(src.PlayingPile)))
+                .ForMember(dest => dest.DiscardPile, opt => opt.MapFrom(src => MakeDiscardPile(src.DiscardPile)));
 
 
             CreateMap<PlayerStatusDto, Player>()
@@ -25,6 +29,21 @@ namespace CardsGameServer.DomainLayer.Mappings.Profiles
                 .ForMember(dest => dest.DiscardPile, opt => opt.MapFrom(src => MakeDiscardCards(src.DiscardPile)))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.PlayerName));
 
+        }
+
+        private Card MakeTopCard(string source)
+        {
+            return new Card();
+        }
+
+        private PlayingPile MakePlayingPile(string source)
+        {
+            return new PlayingPile();
+        }
+
+        private DiscardPile MakeDiscardPile(string source)
+        {
+            return new DiscardPile();
         }
 
         private List<Card> ConvertCardsContentToCards(string cardsContent)

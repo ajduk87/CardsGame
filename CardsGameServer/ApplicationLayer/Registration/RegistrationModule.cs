@@ -2,6 +2,7 @@
 using CardsGameServer.ApplicationLayer.Controllers;
 using CardsGameServer.ApplicationLayer.Services.Configuration;
 using CardsGameServer.ApplicationLayer.Services.GameServices;
+using CardsGameServer.ApplicationLayer.Services.PlayerServices;
 using System.Web.Http;
 
 namespace CardsGameServer.ApplicationLayer.Registration
@@ -18,6 +19,9 @@ namespace CardsGameServer.ApplicationLayer.Registration
 
             objContainer.RegisterType<GameAppService>()
                        .As<IGameAppService>();
+
+            objContainer.RegisterType<PlayerAppServices>()
+                       .As<IPlayerAppServices>();
 
             base.Load(objContainer);
         }

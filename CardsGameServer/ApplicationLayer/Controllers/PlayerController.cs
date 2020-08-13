@@ -33,13 +33,5 @@ namespace CardsGameServer.ApplicationLayer.Controllers
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
-        [HttpDelete]
-        [Route("api/deleteplayer/{id}")]
-        public HttpResponseMessage DeletePlayer(int id)
-        {
-            this.playerAppServices.DeletePlayer(id);
-
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
     }
 }

@@ -27,14 +27,28 @@ namespace CardsGameServer.ApplicationLayer.Services.PlayerServices
         {
             using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
             {
-                Player player = this.dtoToEntityMapper.Map<PlayerDto, Player>(playerDto);
-                int playerId = this.playerService.InsertPlayer(connection, player);
-                Score score = new Score
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
                 {
-                    Id = new Id(playerId),
-                    NumberOfWins = new NumberOfWins(0)
-                };
-                this.scoreService.Insert(connection, score);
+                    try
+                    {
+                        Player player = this.dtoToEntityMapper.Map<PlayerDto, Player>(playerDto);
+                        int playerId = this.playerService.InsertPlayer(connection, player);
+                        Score score = new Score
+                        {
+                            PlayerId = new Id(playerId),
+                            NumberOfWins = new NumberOfWins(0)
+                        };
+                        this.scoreService.Insert(connection, score);
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        Console.Write(ex.Message);
+                    }
+
+                }
             }
         }
     }
