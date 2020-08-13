@@ -17,6 +17,11 @@ namespace CardsGameServer.DomainLayer.Repositories
             return connection.Query<Player>(PlayerQueries.Select, new { id }).Single();
         }
 
+        public bool Exists(IDbConnection connection, long id, IDbTransaction transaction = null)
+        {
+            return connection.ExecuteScalar<bool>(PlayerQueries.Exists, new { id });
+        }
+
         public int Insert(IDbConnection connection, Player player, IDbTransaction transaction = null)
         {
             return connection.ExecuteScalar<int>(PlayerQueries.Insert, new

@@ -22,6 +22,11 @@ namespace CardsGameServer.ApplicationLayer.Registration
                        .As<IValidator>()
                        .InstancePerLifetimeScope();
 
+            objContainer.RegisterType<RoundStartValidator>()
+                      .Keyed<IValidator>("playerStatusStartModels")
+                      .As<IValidator>()
+                      .InstancePerLifetimeScope();
+
             base.Load(objContainer);
         }
     }

@@ -121,6 +121,9 @@
     <value>DELETE FROM cardsgame.players
  WHERE id = @id;</value>
   </data>
+  <data name="Exists" xml:space="preserve">
+    <value>SELECT EXISTS (SELECT 1 FROM cardsgame.players WHERE  id = @id)</value>
+  </data>
   <data name="Insert" xml:space="preserve">
     <value>INSERT INTO cardsgame.players(name, topcard, discardpile, playingpile)
 VALUES(@name, @topcard, @discardpile, @playingpile)  RETURNING id;</value>

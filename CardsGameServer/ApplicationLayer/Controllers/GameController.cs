@@ -45,7 +45,7 @@ namespace CardsGameServer.ApplicationLayer.Controllers
 
         [HttpPost]
         [Route("api/startround")]
-        //[ValidateModelStateFilter]
+        [ValidateModelStateFilter]
         public HttpResponseMessage GameRoundStart(IEnumerable<PlayerStatusModel> playerStatusStartModels)
         {
             IEnumerable<PlayerStatusDto> playerStatusDtoes = this.mapper.Map<IEnumerable<PlayerStatusModel>, IEnumerable<PlayerStatusDto>>(playerStatusStartModels);

@@ -28,7 +28,6 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
                               IShiffleService shiffleService,
                               ICroupierService croupierService,
                               IGameStepService gameStepService,
-                              ITableService tableService,
                               IEvaulationService evaulationService,
                               IPlayerService playerService,
                               IScoreService scoreService)
@@ -38,7 +37,6 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
             this.shiffleService = shiffleService;
             this.croupierService = croupierService;
             this.gameStepService = gameStepService;
-            this.tableService = tableService;
             this.evaulationService = evaulationService;
             this.playerService = playerService;
             this.scoreService = scoreService;
@@ -140,8 +138,10 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
                                 this.gameService.Terminate(connection, winner, transaction);
                                 this.scoreService.IncreaseScore(connection, winner, transaction);
                             }
-
-                            this.playerService.ShuffleCards(connection, players, transaction);
+                            else
+                            {
+                                this.playerService.ShuffleCards(connection, players, transaction);
+                            }
 
                             transaction.Commit();
                         }

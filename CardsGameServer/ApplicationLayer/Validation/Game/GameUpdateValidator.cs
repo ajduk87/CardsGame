@@ -11,6 +11,7 @@ namespace CardsGameServer.ApplicationLayer.Validation.Game
         private readonly int maxNumberOfPlayers = 4;
 
         private readonly IGameRepository gameRepository;
+        private readonly IPlayerRepository playerRepository;
 
         private readonly IDatabaseConnectionFactory databaseConnectionFactory;
 
@@ -19,6 +20,7 @@ namespace CardsGameServer.ApplicationLayer.Validation.Game
             this.databaseConnectionFactory = new DatabaseConnectionFactory();
 
             this.gameRepository = Factory.Create<IGameRepository>();
+            this.playerRepository = Factory.Create<IPlayerRepository>();
 
             RuleFor(g => g.Id)
                  .Cascade(CascadeMode.StopOnFirstFailure)
@@ -26,13 +28,17 @@ namespace CardsGameServer.ApplicationLayer.Validation.Game
                  .Must(ValidateGameId)
                  .WithMessage("The game specified doesn't exist in the database");
 
+            RuleFor(g => g.PlayerId)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotEmpty()
+                .Must(ValidatePlayerId)
+                .WithMessage("The game specified doesn't exist in the database");
+
             RuleFor(g => g.Name)
                  .Cascade(CascadeMode.StopOnFirstFailure)
                  .NotEmpty()
                  .Must(ValidateIsNameStartsWithGame)
                  .WithMessage("Name of game must be start with word GAME.");
-
-            //validate is player exist
 
             RuleFor(g => g.NumberOfPlayers)
                  .Cascade(CascadeMode.StopOnFirstFailure)
@@ -52,6 +58,14 @@ namespace CardsGameServer.ApplicationLayer.Validation.Game
             using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
             {
                 return this.gameRepository.Exists(connection, id);
+            }
+        }
+
+        private bool ValidatePlayerId(int id)
+        {
+            using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
+            {
+                return this.playerRepository.Exists(connection, id);
             }
         }
 

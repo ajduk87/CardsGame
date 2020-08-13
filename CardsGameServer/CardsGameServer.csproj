@@ -195,6 +195,8 @@
     <Compile Include="ApplicationLayer\Services\PlayerServices\PlayerAppServices.cs" />
     <Compile Include="ApplicationLayer\Validation\Game\GameListCreateValidator.cs" />
     <Compile Include="ApplicationLayer\Validation\Game\GameUpdateValidator.cs" />
+    <Compile Include="ApplicationLayer\Validation\Game\RoundStartValidator.cs" />
+    <Compile Include="ApplicationLayer\Validation\Player\PlayerCreateValidator.cs" />
     <Compile Include="ApplicationLayer\Validation\ValidateModelStateFilter.cs" />
     <Compile Include="ApplicationLayer\Validation\ValidatorFactory.cs" />
     <Compile Include="ContainerInitializer.cs" />
@@ -299,9 +301,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ApplicationLayer\Validation\Player\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\RepositoryFactory\RepositoryFactory.csproj">
       <Project>{f574524c-919e-42cc-9935-c1f06f451dbc}</Project>

@@ -71,6 +71,15 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT EXISTS (SELECT 1 FROM cardsgame.players WHERE  id = @id).
+        /// </summary>
+        internal static string Exists {
+            get {
+                return ResourceManager.GetString("Exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to INSERT INTO cardsgame.players(name, topcard, discardpile, playingpile)
         ///VALUES(@name, @topcard, @discardpile, @playingpile)  RETURNING id;.
         /// </summary>
