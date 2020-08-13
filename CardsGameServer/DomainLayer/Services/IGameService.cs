@@ -1,4 +1,5 @@
 ﻿using CardsGameServer.DomainLayer.Entities.GamesEntities;
+using CardsGameServer.DomainLayer.Entities.PlayerEntities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,5 +13,7 @@ namespace CardsGameServer.DomainLayer.Services
     {
         void InsertGame(IDbConnection connection, IEnumerable<Game> games, IDbTransaction transaction = null);
         void UpdateGame(IDbConnection connection, Game game, IDbTransaction transaction = null);
+        bool IsGameOver(IEnumerable<GameStep> gameSteps);
+        void Terminate(IDbConnection connection, Player winner, IDbTransaction transaction = null);
     }
 }

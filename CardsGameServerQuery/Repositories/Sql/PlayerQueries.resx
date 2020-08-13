@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Insert" xml:space="preserve">
-    <value>INSERT INTO cardsgame.gamesprogress(gamename, isinprogress)
-VALUES(@gamename, @isinprogress)</value>
-  </data>
-  <data name="UpdateStatus" xml:space="preserve">
-    <value>UPDATE cardsgame.gamesprogress
-SET isinprogress = @status
-WHERE gamename = @game</value>
+  <data name="SelectByGameName" xml:space="preserve">
+    <value>SELECT players.Id as PlayerId, players.Name as PlayerName, gamesteps.cardvalue as CardValue, players.playingpile as PlayingPile, players.discardpile as DiscardPile, gamesteps.cardsleft as CardsLeft
+FROM cardsgame.players players
+INNER JOIN cardsgame.games games on players.id = games.playerid
+INNER JOIN cardsgame.gamesteps gamesteps on games.playerid = gamesteps.playerid
+WHERE games.name = @gamename
+ORDER BY gamesteps.id
+LIMIT @numberOfPlayers;</value>
   </data>
 </root>

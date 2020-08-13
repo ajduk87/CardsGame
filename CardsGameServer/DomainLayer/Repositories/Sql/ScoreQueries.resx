@@ -118,12 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Insert" xml:space="preserve">
-    <value>INSERT INTO cardsgame.gamesprogress(gamename, isinprogress)
-VALUES(@gamename, @isinprogress)</value>
+    <value>INSERT INTO cardsgame.scores(playerid, numberofwins)
+VALUES(@playerid, @numberofwins);</value>
   </data>
-  <data name="UpdateStatus" xml:space="preserve">
-    <value>UPDATE cardsgame.gamesprogress
-SET isinprogress = @status
-WHERE gamename = @game</value>
+  <data name="SelectByPlayerId" xml:space="preserve">
+    <value>SELECT * FROM cardsgame.scores
+WHERE playerId = @playerId</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>UPDATE cardsgame.scores
+SET playerid = @playerid, numberofwins = @numberofwins
+WHERE id = @id</value>
   </data>
 </root>

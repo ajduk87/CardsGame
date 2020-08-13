@@ -2,6 +2,8 @@
 using System.Data;
 using Dapper;
 using CardsGameServer.DomainLayer.Repositories.Sql;
+using CardsGameServer.DomainLayer.Entities.PlayerEntities;
+using System.Linq;
 
 namespace CardsGameServer.DomainLayer.Repositories
 {
@@ -33,6 +35,11 @@ namespace CardsGameServer.DomainLayer.Repositories
         public bool Exists(IDbConnection connection, int id, IDbTransaction transaction = null)
         {
             return connection.ExecuteScalar<bool>(GameQueries.Exists, new { id });
+        }
+
+        public Game SelectLastestGameByPlayerId(IDbConnection connection, int playerid, IDbTransaction transaction = null)
+        {
+            return connection.Query<Game>(GameQueries.SelectByPlayerId, new { playerid }).Single();
         }
     }
 }

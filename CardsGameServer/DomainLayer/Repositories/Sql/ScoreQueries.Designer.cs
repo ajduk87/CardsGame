@@ -22,14 +22,14 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class GameProgressQueries {
+    internal class ScoreQueries {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal GameProgressQueries() {
+        internal ScoreQueries() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CardsGameServer.DomainLayer.Repositories.Sql.GameProgressQueries", typeof(GameProgressQueries).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CardsGameServer.DomainLayer.Repositories.Sql.ScoreQueries", typeof(ScoreQueries).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,8 +61,8 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO cardsgame.gamesprogress(gamename, isinprogress)
-        ///VALUES(@gamename, @isinprogress).
+        ///   Looks up a localized string similar to INSERT INTO cardsgame.scores(playerid, numberofwins)
+        ///VALUES(@playerid, @numberofwins);.
         /// </summary>
         internal static string Insert {
             get {
@@ -71,13 +71,23 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UPDATE cardsgame.gamesprogress
-        ///SET isinprogress = @status
-        ///WHERE gamename = @game.
+        ///   Looks up a localized string similar to SELECT * FROM cardsgame.scores
+        ///WHERE playerId = @playerId.
         /// </summary>
-        internal static string UpdateStatus {
+        internal static string SelectByPlayerId {
             get {
-                return ResourceManager.GetString("UpdateStatus", resourceCulture);
+                return ResourceManager.GetString("SelectByPlayerId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE cardsgame.scores
+        ///SET playerid = @playerid, numberofwins = @numberofwins
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
             }
         }
     }

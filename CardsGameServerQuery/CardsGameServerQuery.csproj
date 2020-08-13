@@ -130,10 +130,17 @@
     <Compile Include="Registration\RegistrationModule.cs" />
     <Compile Include="Repositories\Game\GameDtoRepository.cs" />
     <Compile Include="Repositories\Game\IGameDtoRepository.cs" />
+    <Compile Include="Repositories\Player\IPlayerDtoRepository.cs" />
+    <Compile Include="Repositories\Player\PlayerDtoRepository.cs" />
     <Compile Include="Repositories\Sql\GameQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameQueries.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Sql\PlayerQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayerQueries.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -151,6 +158,10 @@
     <EmbeddedResource Include="Repositories\Sql\GameQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GameQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Repositories\Sql\PlayerQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlayerQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

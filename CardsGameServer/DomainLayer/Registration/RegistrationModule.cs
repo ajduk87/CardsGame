@@ -39,6 +39,10 @@ namespace CardsGameServer.DomainLayer.Registration
                      .Keyed<IPlayerService>(typeof(PlayerService))
                      .As<IPlayerService>();
 
+            objContainer.RegisterType<ScoreService>()
+                   .Keyed<IScoreService>(typeof(ScoreService))
+                   .As<IScoreService>();
+
             base.Load(objContainer);
         }
     }

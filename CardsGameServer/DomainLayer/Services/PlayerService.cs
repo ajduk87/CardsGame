@@ -56,7 +56,7 @@ namespace CardsGameServer.DomainLayer.Services
         }
 
 
-        public Player PickWinner(IEnumerable<Player> allplayers, IEnumerable<GameStep> gameSteps)
+        public Player PickRoundWinner(IEnumerable<Player> allplayers, IEnumerable<GameStep> gameSteps)
         {
             int winnerId = gameSteps.Single(gameStep => gameStep.IsStepWinner == true).PlayerId;
             Player winner = allplayers.Where(player => player.Id == winnerId).Single();

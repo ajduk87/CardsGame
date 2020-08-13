@@ -8,6 +8,7 @@ namespace CardsGameServer.DomainLayer.Entities.GamesEntities
     {
         public Id PlayerId { get; set; }
         public CardValue CardValue { get; set; }
+        public CardSuit CardSuit { get; set; }
         public IsStepWinner IsStepWinner { get; set; }
         public CardsLeft CardsLeft { get; set; }
         public GamesGameStep GamesGameStep { get; set; }

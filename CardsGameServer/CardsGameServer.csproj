@@ -213,6 +213,7 @@
     <Compile Include="DomainLayer\Entities\ValueObjects\GameProgress\IsInProgress.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GamesNumberOfPlayers\NumberOfPlayers.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\CardsLeft.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\CardSuit.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\CardValue.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\GameSteps\IsStepWinner.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Games\IsWinner.cs" />
@@ -239,8 +240,10 @@
     <Compile Include="DomainLayer\Repositories\IGameRepository.cs" />
     <Compile Include="DomainLayer\Repositories\IGameStepRepository.cs" />
     <Compile Include="DomainLayer\Repositories\IPlayerRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\IScoreRepository.cs" />
     <Compile Include="DomainLayer\Repositories\ITableSaver.cs" />
     <Compile Include="DomainLayer\Repositories\PlayerRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\ScoreRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Sql\GameProgressQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -261,6 +264,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlayerQueries.resx</DependentUpon>
     </Compile>
+    <Compile Include="DomainLayer\Repositories\Sql\ScoreQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScoreQueries.resx</DependentUpon>
+    </Compile>
     <Compile Include="DomainLayer\Repositories\TableSaver.cs" />
     <Compile Include="DomainLayer\Services\CroupierService.cs" />
     <Compile Include="DomainLayer\Services\EvaulationService.cs" />
@@ -273,9 +281,11 @@
     <Compile Include="DomainLayer\Services\IGameService.cs" />
     <Compile Include="DomainLayer\Services\IGameStepService.cs" />
     <Compile Include="DomainLayer\Services\IPlayerService.cs" />
+    <Compile Include="DomainLayer\Services\IScoreService.cs" />
     <Compile Include="DomainLayer\Services\IShiffleService.cs" />
     <Compile Include="DomainLayer\Services\ITableService.cs" />
     <Compile Include="DomainLayer\Services\PlayerService.cs" />
+    <Compile Include="DomainLayer\Services\ScoreService.cs" />
     <Compile Include="DomainLayer\Services\ShiffleService.cs" />
     <Compile Include="DomainLayer\Services\TableService.cs" />
     <Compile Include="IDatabaseConnectionFactory.cs" />
@@ -310,6 +320,10 @@
     <EmbeddedResource Include="DomainLayer\Repositories\Sql\PlayerQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PlayerQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DomainLayer\Repositories\Sql\ScoreQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScoreQueries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

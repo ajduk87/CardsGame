@@ -124,6 +124,12 @@
     <value>INSERT INTO cardsgame.games(name, playerid, numberofsteps, iswinner)
 VALUES(@name, @playerid, @numberofsteps, @iswinner)</value>
   </data>
+  <data name="SelectByPlayerId" xml:space="preserve">
+    <value>SELECT * FROM cardsgame.games
+WHERE playerid = @playerid
+ORDER BY gamesteps.id
+LIMIT 1;</value>
+  </data>
   <data name="Update" xml:space="preserve">
     <value>UPDATE cardsgame.games
 SET name = @name, playerid = @playerid, numberofsteps = @numberofsteps, iswinner = @iswinner

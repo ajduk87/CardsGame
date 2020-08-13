@@ -1,6 +1,8 @@
 ﻿using CardsGameServerQuery.Dtoes;
 using CardsGameServerQuery.Repositories.Game;
+using CardsGameServerQuery.Repositories.Player;
 using Npgsql;
+using RepositoryFactory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +15,12 @@ namespace CardsGameServerQuery.Controllers
     public class GameController : BaseController
     {
         private readonly IGameDtoRepository gameDtoRepository;
+        private readonly IPlayerDtoRepository playerDtoRepository;
 
         public GameController()
         {
-            this.gameDtoRepository = new GameDtoRepository();
+            this.gameDtoRepository = Factory.Create<IGameDtoRepository>();
+            this.playerDtoRepository = Factory.Create<IPlayerDtoRepository>();
         }
 
         [HttpGet]
@@ -62,10 +66,26 @@ namespace CardsGameServerQuery.Controllers
         }
 
         [HttpGet]
-        [Route("api/getcards/{gamename}")]
-        public IEnumerable<PlayerStatusDto> GameRoundProcess(string gamename)
+        [Route("api/getcardsandstatuses/{gamename}/{numberofplayers}")]
+        public IEnumerable<PlayerStatusDto> GameRoundProcess(string gamename, int numberofplayers)
         {
-            return new List<PlayerStatusDto>();
+            IEnumerable<PlayerStatusDto> playerStatusDtoes = new List<PlayerStatusDto>();
+
+            using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
+            {
+                try
+                {
+                    playerStatusDtoes = this.playerDtoRepository.SelectPlayerStatusByGamename(connection, gamename, numberofplayers);
+                }
+                catch (Exception ex)
+                {
+                    Console.Write(ex.Message);
+                    return new List<PlayerStatusDto>();
+                }
+
+            }
+
+            return playerStatusDtoes;
         }
     }
 }

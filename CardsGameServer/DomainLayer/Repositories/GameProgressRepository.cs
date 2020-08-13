@@ -20,5 +20,14 @@ namespace CardsGameServer.DomainLayer.Repositories
                 isinprogress = gameProgress.IsInProgress.Content
             });
         }
+
+        public void UpdateStatus(IDbConnection connection, string game, bool status, IDbTransaction transaction = null)
+        {
+            connection.Execute(GameProgressQueries.UpdateStatus, new
+            {
+                gamename = game,
+                isinprogress = status
+            });
+        }
     }
 }

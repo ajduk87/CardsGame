@@ -21,6 +21,7 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
         private readonly ITableService tableService;
         private readonly IEvaulationService evaulationService;
         private readonly IPlayerService playerService;
+        private readonly IScoreService scoreService;
 
         public GameAppService(IGameService gameService,
                               IGameProgressService gameProgressService,
@@ -29,7 +30,8 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
                               IGameStepService gameStepService,
                               ITableService tableService,
                               IEvaulationService evaulationService,
-                              IPlayerService playerService)
+                              IPlayerService playerService,
+                              IScoreService scoreService)
         {
             this.gameService = gameService;
             this.gameProgressService = gameProgressService;
@@ -39,6 +41,7 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
             this.tableService = tableService;
             this.evaulationService = evaulationService;
             this.playerService = playerService;
+            this.scoreService = scoreService;
         }
 
         public void MakeNewGame(IEnumerable<GameDto> gameDtoes)
@@ -119,7 +122,7 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
             IEnumerable<GameStep> evaulatedGameSteps = this.evaulationService.Evaulate(gameSteps);
             if (evaulatedGameSteps.Any(step => step.IsStepWinner == true))
             {
-                Player winner =this.playerService.PickWinner(players, evaulatedGameSteps);
+                Player roundWinner =this.playerService.PickRoundWinner(players, evaulatedGameSteps);
 
                 using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
                 {
@@ -128,8 +131,16 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
                     {
                         try
                         {
-                            this.playerService.SetCardsToWinner(connection, winner);
+                            this.playerService.SetCardsToWinner(connection, roundWinner);
                             this.gameStepService.UpdateSteps(connection, evaulatedGameSteps, transaction);
+
+                            if (this.gameService.IsGameOver(evaulatedGameSteps))
+                            {
+                                Player winner = roundWinner;
+                                this.gameService.Terminate(connection, winner, transaction);
+                                this.scoreService.IncreaseScore(connection, winner, transaction);
+                            }
+
                             transaction.Commit();
                         }
                         catch (Exception ex)

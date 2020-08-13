@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CardsGameServer.DomainLayer.Repositories.Sql {
+namespace CardsGameServerQuery.Repositories.Sql {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class GameProgressQueries {
+    internal class PlayerQueries {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal GameProgressQueries() {
+        internal PlayerQueries() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CardsGameServer.DomainLayer.Repositories.Sql.GameProgressQueries", typeof(GameProgressQueries).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CardsGameServerQuery.Repositories.Sql.PlayerQueries", typeof(PlayerQueries).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,23 +61,17 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO cardsgame.gamesprogress(gamename, isinprogress)
-        ///VALUES(@gamename, @isinprogress).
+        ///   Looks up a localized string similar to SELECT players.Id as PlayerId, players.Name as PlayerName, gamesteps.cardvalue as CardValue, players.playingpile as PlayingPile, players.discardpile as DiscardPile, gamesteps.cardsleft as CardsLeft
+        ///FROM cardsgame.players players
+        ///INNER JOIN cardsgame.games games on players.id = games.playerid
+        ///INNER JOIN cardsgame.gamesteps gamesteps on games.playerid = gamesteps.playerid
+        ///WHERE games.name = @gamename
+        ///ORDER BY gamesteps.id
+        ///LIMIT @numberOfPlayers;.
         /// </summary>
-        internal static string Insert {
+        internal static string SelectByGameName {
             get {
-                return ResourceManager.GetString("Insert", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UPDATE cardsgame.gamesprogress
-        ///SET isinprogress = @status
-        ///WHERE gamename = @game.
-        /// </summary>
-        internal static string UpdateStatus {
-            get {
-                return ResourceManager.GetString("UpdateStatus", resourceCulture);
+                return ResourceManager.GetString("SelectByGameName", resourceCulture);
             }
         }
     }

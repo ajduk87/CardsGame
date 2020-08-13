@@ -92,6 +92,7 @@ CREATE TABLE cardsgame.gamesteps
 	Id integer NOT NULL   DEFAULT NEXTVAL(('cardsgame."players_id_seq"'::text)::regclass),
 	PlayerId integer NOT NULL,
 	CardValue integer NOT NULL,
+	CardSuit varchar(30) NULL,
 	IsStepWinner boolean NULL,
 	CardsLeft integer NOT NULL
 	

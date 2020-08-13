@@ -1,4 +1,5 @@
 ﻿using CardsGameServer.DomainLayer.Entities.GamesEntities;
+using CardsGameServer.DomainLayer.Entities.PlayerEntities;
 using RepositoryFactory;
 using System.Data;
 
@@ -9,5 +10,6 @@ namespace CardsGameServer.DomainLayer.Repositories
         void Insert(IDbConnection connection, Game game, IDbTransaction transaction = null);
         void Update(IDbConnection connection, Game game, IDbTransaction transaction = null);
         bool Exists(IDbConnection connection, int id, IDbTransaction transaction = null);
+        Game SelectLastestGameByPlayerId(IDbConnection connection, int id, IDbTransaction transaction = null);
     }
 }
