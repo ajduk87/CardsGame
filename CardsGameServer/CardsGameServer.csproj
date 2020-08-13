@@ -169,18 +169,18 @@
     <Compile Include="ApplicationLayer\Controllers\GameController.cs" />
     <Compile Include="ApplicationLayer\Controllers\PlayerController.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Dto.cs" />
-    <Compile Include="ApplicationLayer\Dtoes\GameDto.cs" />
-    <Compile Include="ApplicationLayer\Dtoes\GameStepDto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\Game\GameDto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\Game\GameStepDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Parameter.cs" />
-    <Compile Include="ApplicationLayer\Dtoes\PlayerDto.cs" />
-    <Compile Include="ApplicationLayer\Dtoes\PlayerStatusDto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\Player\PlayerDto.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\Player\PlayerStatusDto.cs" />
     <Compile Include="ApplicationLayer\Enums\CardSuit.cs" />
     <Compile Include="ApplicationLayer\Extensions\IEnumerableExtensions.cs" />
     <Compile Include="ApplicationLayer\Mappings\GameProfile.cs" />
-    <Compile Include="ApplicationLayer\Models\GameBaseModel.cs" />
-    <Compile Include="ApplicationLayer\Models\GameCreateModel.cs" />
-    <Compile Include="ApplicationLayer\Models\PlayerStatusModel.cs" />
-    <Compile Include="ApplicationLayer\Models\GameUpdateModel.cs" />
+    <Compile Include="ApplicationLayer\Models\Game\GameBaseModel.cs" />
+    <Compile Include="ApplicationLayer\Models\Game\GameCreateModel.cs" />
+    <Compile Include="ApplicationLayer\Models\Player\PlayerStatusModel.cs" />
+    <Compile Include="ApplicationLayer\Models\Game\GameUpdateModel.cs" />
     <Compile Include="ApplicationLayer\Registration\Containers\RegistrationValidators.cs" />
     <Compile Include="ApplicationLayer\Registration\RegistrationModule.cs" />
     <Compile Include="ApplicationLayer\Registration\RegistrationValidatorsModule.cs" />
@@ -233,17 +233,17 @@
     <Compile Include="DomainLayer\Mappings\IMapper.cs" />
     <Compile Include="DomainLayer\Mappings\Profiles\PlayerProfile.cs" />
     <Compile Include="DomainLayer\Registration\RegistrationModule.cs" />
-    <Compile Include="DomainLayer\Repositories\GameProgressRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\GameRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\GameStepRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\IGameProgressRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\IGameRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\IGameStepRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\IPlayerRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\IScoreRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\ITableSaver.cs" />
-    <Compile Include="DomainLayer\Repositories\PlayerRepository.cs" />
-    <Compile Include="DomainLayer\Repositories\ScoreRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\GameProgressRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\GameRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\GameStepRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\IGameProgressRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\IGameRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\IGameStepRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Player\IPlayerRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\IScoreRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Table\ITableSaver.cs" />
+    <Compile Include="DomainLayer\Repositories\Player\PlayerRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\ScoreRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Sql\GameProgressQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -269,25 +269,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScoreQueries.resx</DependentUpon>
     </Compile>
-    <Compile Include="DomainLayer\Repositories\TableSaver.cs" />
-    <Compile Include="DomainLayer\Services\CroupierService.cs" />
-    <Compile Include="DomainLayer\Services\EvaulationService.cs" />
-    <Compile Include="DomainLayer\Services\GameProgressService.cs" />
-    <Compile Include="DomainLayer\Services\GameService.cs" />
-    <Compile Include="DomainLayer\Services\GameStepService.cs" />
-    <Compile Include="DomainLayer\Services\ICroupierService.cs" />
-    <Compile Include="DomainLayer\Services\IEvaulationService.cs" />
-    <Compile Include="DomainLayer\Services\IGameProgressService.cs" />
-    <Compile Include="DomainLayer\Services\IGameService.cs" />
-    <Compile Include="DomainLayer\Services\IGameStepService.cs" />
-    <Compile Include="DomainLayer\Services\IPlayerService.cs" />
-    <Compile Include="DomainLayer\Services\IScoreService.cs" />
-    <Compile Include="DomainLayer\Services\IShiffleService.cs" />
-    <Compile Include="DomainLayer\Services\ITableService.cs" />
-    <Compile Include="DomainLayer\Services\PlayerService.cs" />
-    <Compile Include="DomainLayer\Services\ScoreService.cs" />
-    <Compile Include="DomainLayer\Services\ShiffleService.cs" />
-    <Compile Include="DomainLayer\Services\TableService.cs" />
+    <Compile Include="DomainLayer\Repositories\Table\TableSaver.cs" />
+    <Compile Include="DomainLayer\Services\Calculation\CroupierService.cs" />
+    <Compile Include="DomainLayer\Services\Calculation\EvaulationService.cs" />
+    <Compile Include="DomainLayer\Services\Game\GameProgressService.cs" />
+    <Compile Include="DomainLayer\Services\Game\GameService.cs" />
+    <Compile Include="DomainLayer\Services\Game\GameStepService.cs" />
+    <Compile Include="DomainLayer\Services\Calculation\ICroupierService.cs" />
+    <Compile Include="DomainLayer\Services\Calculation\IEvaulationService.cs" />
+    <Compile Include="DomainLayer\Services\Game\IGameProgressService.cs" />
+    <Compile Include="DomainLayer\Services\Game\IGameService.cs" />
+    <Compile Include="DomainLayer\Services\Game\IGameStepService.cs" />
+    <Compile Include="DomainLayer\Services\Player\IPlayerService.cs" />
+    <Compile Include="DomainLayer\Services\Game\IScoreService.cs" />
+    <Compile Include="DomainLayer\Services\Calculation\IShiffleService.cs" />
+    <Compile Include="DomainLayer\Services\Table\ITableService.cs" />
+    <Compile Include="DomainLayer\Services\Player\PlayerService.cs" />
+    <Compile Include="DomainLayer\Services\Game\ScoreService.cs" />
+    <Compile Include="DomainLayer\Services\Calculation\ShiffleService.cs" />
+    <Compile Include="DomainLayer\Services\Table\TableService.cs" />
     <Compile Include="IDatabaseConnectionFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -297,7 +297,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ApplicationLayer\Validation\Player\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RepositoryFactory\RepositoryFactory.csproj">
       <Project>{f574524c-919e-42cc-9935-c1f06f451dbc}</Project>
