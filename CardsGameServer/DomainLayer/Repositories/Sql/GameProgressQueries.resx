@@ -123,7 +123,7 @@ VALUES(@gamename, @isinprogress)</value>
   </data>
   <data name="UpdateStatus" xml:space="preserve">
     <value>UPDATE cardsgame.gamesprogress
-SET isinprogress = @status
-WHERE gamename = @game</value>
+SET isinprogress = @isinprogress
+WHERE gamename = @gamename</value>
   </data>
 </root>

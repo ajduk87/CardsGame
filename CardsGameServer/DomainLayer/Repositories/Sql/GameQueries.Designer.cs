@@ -82,7 +82,7 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         /// <summary>
         ///   Looks up a localized string similar to SELECT * FROM cardsgame.games
         ///WHERE playerid = @playerid
-        ///ORDER BY gamesteps.id
+        ///ORDER BY games.id
         ///LIMIT 1;.
         /// </summary>
         internal static string SelectByPlayerId {

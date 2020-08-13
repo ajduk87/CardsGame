@@ -24,6 +24,7 @@ namespace CardsGameServer.DomainLayer.Entities.ValueObjects
         public void AddCardsToPile(List<Card> cards) =>
             this.Cards.AddRange(cards);
 
+
         public CardsLeft Count()
         {
             return new CardsLeft(this.Cards.Count);

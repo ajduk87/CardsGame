@@ -72,8 +72,8 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         
         /// <summary>
         ///   Looks up a localized string similar to UPDATE cardsgame.gamesprogress
-        ///SET isinprogress = @status
-        ///WHERE gamename = @game.
+        ///SET isinprogress = @isinprogress
+        ///WHERE gamename = @gamename.
         /// </summary>
         internal static string UpdateStatus {
             get {

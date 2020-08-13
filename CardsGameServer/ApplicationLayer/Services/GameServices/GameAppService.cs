@@ -122,7 +122,7 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
             IEnumerable<GameStep> evaulatedGameSteps = this.evaulationService.Evaulate(gameSteps);
             if (evaulatedGameSteps.Any(step => step.IsStepWinner == true))
             {
-                Player roundWinner =this.playerService.PickRoundWinner(players, evaulatedGameSteps);
+                Player roundWinner = this.playerService.PickRoundWinner(players, evaulatedGameSteps);
 
                 using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
                 {
@@ -140,6 +140,8 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
                                 this.gameService.Terminate(connection, winner, transaction);
                                 this.scoreService.IncreaseScore(connection, winner, transaction);
                             }
+
+                            this.playerService.ShuffleCards(connection, players, transaction);
 
                             transaction.Commit();
                         }

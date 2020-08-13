@@ -19,12 +19,14 @@ namespace CardsGameServer.DomainLayer.Services
         private readonly IPlayerRepository playerRepository;
 
         private readonly ITableService tableService;
+        private readonly IShiffleService shiffleService;
 
-        public PlayerService(ITableService tableService)
+        public PlayerService(ITableService tableService, IShiffleService shiffleService)
         {
             this.playerRepository = Factory.Create<IPlayerRepository>();
 
             this.tableService = tableService;
+            this.shiffleService = shiffleService;
         }
 
         public void SetupCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null) =>
@@ -65,5 +67,19 @@ namespace CardsGameServer.DomainLayer.Services
 
             return winner;
         }
+
+        public void ShuffleCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null) =>
+            players.ForEach(player =>
+                                {
+                                    if (player.PlayingPile.Cards.Count() == 0)
+                                    {
+                                        player.PlayingPile = new PlayingPile(player.DiscardPile.Cards);
+                                        player.DiscardPile = new DiscardPile();
+                                        List<Card> shuffledCards = this.shiffleService.Shiffle(player.PlayingPile);
+                                        player.PlayingPile = new PlayingPile(shuffledCards);
+                                        this.playerRepository.Update(connection, player, transaction);
+                                    }
+                                });
+
     }
 }

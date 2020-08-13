@@ -21,12 +21,12 @@ namespace CardsGameServer.DomainLayer.Repositories
             });
         }
 
-        public void UpdateStatus(IDbConnection connection, string game, bool status, IDbTransaction transaction = null)
+        public void UpdateStatus(IDbConnection connection, string gamename, bool isinprogress, IDbTransaction transaction = null)
         {
             connection.Execute(GameProgressQueries.UpdateStatus, new
             {
-                gamename = game,
-                isinprogress = status
+                gamename = gamename,
+                isinprogress = isinprogress
             });
         }
     }

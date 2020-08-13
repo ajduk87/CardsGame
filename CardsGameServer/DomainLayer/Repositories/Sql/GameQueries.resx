@@ -127,7 +127,7 @@ VALUES(@name, @playerid, @numberofsteps, @iswinner)</value>
   <data name="SelectByPlayerId" xml:space="preserve">
     <value>SELECT * FROM cardsgame.games
 WHERE playerid = @playerid
-ORDER BY gamesteps.id
+ORDER BY games.id
 LIMIT 1;</value>
   </data>
   <data name="Update" xml:space="preserve">
