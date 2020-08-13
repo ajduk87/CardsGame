@@ -18,11 +18,7 @@ namespace CardsGameServer.ApplicationLayer.Controllers
             MapperConfiguration mapperConfiguration = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<GameProfile>();
-                //cfg.AddProfile<CustomerProfile>();
-                //cfg.AddProfile<StorageProfile>();
-                //cfg.AddProfile<OrderProfile>();
-                //cfg.AddProfile<InvoiceProfile>();
-                //cfg.AddProfile<ActionProfile>();
+                cfg.AddProfile<PlayerProfile>();
             });
 
             return mapperConfiguration.CreateMapper();

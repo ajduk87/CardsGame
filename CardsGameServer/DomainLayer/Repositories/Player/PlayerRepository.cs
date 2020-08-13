@@ -17,6 +17,17 @@ namespace CardsGameServer.DomainLayer.Repositories
             return connection.Query<Player>(PlayerQueries.Select, new { id }).Single();
         }
 
+        public int Insert(IDbConnection connection, Player player, IDbTransaction transaction = null)
+        {
+            return connection.ExecuteScalar<int>(PlayerQueries.Insert, new
+            {
+                name = player.Name.Content,
+                topcard = player.TopCard.ToString(),
+                discardpile = player.DiscardPile.ToString(),
+                playingpile = player.PlayingPile.ToString()
+            }, transaction);
+        }
+
         public void Update(IDbConnection connection, Player player, IDbTransaction transaction = null)
         {
             connection.Execute(PlayerQueries.Update, new

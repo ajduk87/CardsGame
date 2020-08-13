@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CardsGameServer.ApplicationLayer.Dtoes
+namespace CardsGameServer.ApplicationLayer.Models.Player
 {
-    public class PlayerDto : Dto
+    public class PlayerCreateModel
     {
-        public string FirstName { get; set; }
+        public string Name { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
     }

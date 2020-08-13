@@ -14,6 +14,10 @@ namespace CardsGameServer.DomainLayer.Mappings.Profiles
     {
         public PlayerProfile()
         {
+            CreateMap<PlayerDto, Player>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => $"{src.FirstName} ({src.MiddleName} {src.LastName})"));
+
+
             CreateMap<PlayerStatusDto, Player>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.PlayerId))
                 .ForMember(dest => dest.TopCard, opt => opt.MapFrom(src => MakeCard(src.CardValue, src.CardSuit)))

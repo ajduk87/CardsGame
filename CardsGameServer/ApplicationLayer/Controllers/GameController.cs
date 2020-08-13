@@ -46,9 +46,9 @@ namespace CardsGameServer.ApplicationLayer.Controllers
         [HttpPost]
         [Route("api/startround")]
         //[ValidateModelStateFilter]
-        public HttpResponseMessage GameRoundStart(IEnumerable<PlayerStatusModel> playerStatusModels)
+        public HttpResponseMessage GameRoundStart(IEnumerable<PlayerStatusModel> playerStatusStartModels)
         {
-            IEnumerable<PlayerStatusDto> playerStatusDtoes = this.mapper.Map<IEnumerable<PlayerStatusModel>, IEnumerable<PlayerStatusDto>>(playerStatusModels);
+            IEnumerable<PlayerStatusDto> playerStatusDtoes = this.mapper.Map<IEnumerable<PlayerStatusModel>, IEnumerable<PlayerStatusDto>>(playerStatusStartModels);
             this.gameAppService.StartRound(playerStatusDtoes);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
@@ -56,9 +56,9 @@ namespace CardsGameServer.ApplicationLayer.Controllers
         [HttpPost]
         [Route("api/processround")]
         //[ValidateModelStateFilter]
-        public HttpResponseMessage GameRoundProcess(IEnumerable<PlayerStatusModel> playerStatusModels)
+        public HttpResponseMessage GameRoundProcess(IEnumerable<PlayerStatusModel> playerStatusProcessModels)
         {
-            IEnumerable<PlayerStatusDto> playerStatusDtoes = this.mapper.Map<IEnumerable<PlayerStatusModel>, IEnumerable<PlayerStatusDto>>(playerStatusModels);
+            IEnumerable<PlayerStatusDto> playerStatusDtoes = this.mapper.Map<IEnumerable<PlayerStatusModel>, IEnumerable<PlayerStatusDto>>(playerStatusProcessModels);
             this.gameAppService.ProcessRound(playerStatusDtoes);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }

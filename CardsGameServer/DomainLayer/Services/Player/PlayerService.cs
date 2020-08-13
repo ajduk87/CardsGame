@@ -29,6 +29,10 @@ namespace CardsGameServer.DomainLayer.Services
             this.shiffleService = shiffleService;
         }
 
+        public int InsertPlayer(IDbConnection connection, Player player, IDbTransaction transaction = null) =>
+            this.playerRepository.Insert(connection, player, transaction);
+
+
         public void SetupCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null) =>
             players.ForEach(player =>
             {

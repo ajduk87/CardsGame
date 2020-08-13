@@ -21,6 +21,9 @@ namespace CardsGameServer.DomainLayer.Services
             this.scoreRepository = Factory.Create<IScoreRepository>();
         }
 
+        public void Insert(IDbConnection connection, Score score, IDbTransaction transaction = null) =>
+            this.scoreRepository.Insert(connection, score, transaction);
+
 
         public void IncreaseScore(IDbConnection connection, Player winner, IDbTransaction transaction = null)
         {

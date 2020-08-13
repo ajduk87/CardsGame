@@ -11,6 +11,7 @@ namespace CardsGameServer.DomainLayer.Services
 {
     public interface IPlayerService
     {
+        int InsertPlayer(IDbConnection connection, Player player, IDbTransaction transaction = null);
         void SetupCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null);
         void SetCardsToWinner(IDbConnection connection, Player winner, IDbTransaction transaction = null);
         IEnumerable<GameStep> StartTheGame(IEnumerable<Player> players);

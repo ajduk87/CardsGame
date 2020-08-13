@@ -177,8 +177,10 @@
     <Compile Include="ApplicationLayer\Enums\CardSuit.cs" />
     <Compile Include="ApplicationLayer\Extensions\IEnumerableExtensions.cs" />
     <Compile Include="ApplicationLayer\Mappings\GameProfile.cs" />
+    <Compile Include="ApplicationLayer\Mappings\PlayerProfile.cs" />
     <Compile Include="ApplicationLayer\Models\Game\GameBaseModel.cs" />
     <Compile Include="ApplicationLayer\Models\Game\GameCreateModel.cs" />
+    <Compile Include="ApplicationLayer\Models\Player\PlayerCreateModel.cs" />
     <Compile Include="ApplicationLayer\Models\Player\PlayerStatusModel.cs" />
     <Compile Include="ApplicationLayer\Models\Game\GameUpdateModel.cs" />
     <Compile Include="ApplicationLayer\Registration\Containers\RegistrationValidators.cs" />
@@ -189,8 +191,8 @@
     <Compile Include="ApplicationLayer\Services\Configuration\IConfigurationService.cs" />
     <Compile Include="ApplicationLayer\Services\GameServices\GameAppService.cs" />
     <Compile Include="ApplicationLayer\Services\GameServices\IGameAppService.cs" />
-    <Compile Include="ApplicationLayer\Services\PlayerServices\IPlayerServices.cs" />
-    <Compile Include="ApplicationLayer\Services\PlayerServices\PlayerServices.cs" />
+    <Compile Include="ApplicationLayer\Services\PlayerServices\IPlayerAppServices.cs" />
+    <Compile Include="ApplicationLayer\Services\PlayerServices\PlayerAppServices.cs" />
     <Compile Include="ApplicationLayer\Validation\Game\GameListCreateValidator.cs" />
     <Compile Include="ApplicationLayer\Validation\Game\GameUpdateValidator.cs" />
     <Compile Include="ApplicationLayer\Validation\ValidateModelStateFilter.cs" />

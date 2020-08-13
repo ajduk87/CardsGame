@@ -61,6 +61,26 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM cardsgame.players
+        /// WHERE id = @id;.
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO cardsgame.players(name, topcard, discardpile, playingpile)
+        ///VALUES(@name, @topcard, @discardpile, @playingpile)  RETURNING id;.
+        /// </summary>
+        internal static string Insert {
+            get {
+                return ResourceManager.GetString("Insert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT * FROM cardsgame.players
         ///where id = @id.
         /// </summary>
