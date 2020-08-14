@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientControllerLibrary.Dtoes.Player
+namespace CardsGameServerQuery.Dtoes
 {
     public class PlayerDto : Dto
     {

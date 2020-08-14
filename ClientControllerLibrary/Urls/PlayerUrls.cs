@@ -9,10 +9,12 @@ namespace ClientControllerLibrary.Urls
     public class PlayerUrls : Urls
     {
         public string NewPlayer { get; }
+        public string AllPlayers { get; }
 
         public PlayerUrls()
         {
             this.NewPlayer = $"{ServerCommandIpAddress}/api/newplayer";
+            this.AllPlayers = $"{ServerQueryIpAddress}/api/players";
         }
     }
 }

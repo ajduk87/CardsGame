@@ -12,6 +12,12 @@ namespace CardsGameServerQuery.Repositories.Player
 {
     public class PlayerDtoRepository : IPlayerDtoRepository
     {
+
+        public IEnumerable<PlayerDto> SelectAll(IDbConnection connection, IDbTransaction transaction = null)
+        {
+            return connection.Query<PlayerDto>(PlayerQueries.SelectAll);
+        }
+
         public IEnumerable<PlayerStatusDto> SelectPlayerStatusByGamename(IDbConnection connection, string gamename, int numberOfPlayers, IDbTransaction transaction = null)
         {
             return connection.Query<PlayerStatusDto>(PlayerQueries.SelectByGameName, new { gamename, numberOfPlayers });

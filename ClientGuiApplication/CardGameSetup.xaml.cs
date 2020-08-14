@@ -2,10 +2,12 @@
 using ClientControllerLibrary.Dtoes.Configuration;
 using ClientControllerLibrary.Dtoes.Player;
 using ClientControllerLibrary.Urls;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,6 +40,14 @@ namespace ClientGuiApplication
             this.configurationUrls = new ConfigurationUrls();
 
             this.apiCaller = new ApiCaller();
+
+            string responseMessageStorage = this.apiCaller.Get(this.configurationUrls.Configuration);
+            string responseStorage = Regex.Unescape(responseMessageStorage).Trim('"');
+            PlayerNumberDto playerNumberDto = JsonConvert.DeserializeObject<PlayerNumberDto>(responseStorage);
+            Constants.NumberOfPlayers = playerNumberDto.NumberOfPlayers;
+
+
+            tfplayersnumber.Text = Constants.NumberOfPlayers.ToString();
         }
 
         private void BtnEnterPlayer_Click(object sender, RoutedEventArgs e)

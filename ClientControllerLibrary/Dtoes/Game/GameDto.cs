@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientControllerLibrary.Dtoes.Game
 {
-    public class GameDto
+    public class GameDto : Dto
     {
         public int Id { get; set; }
         public string Name { get; set; }

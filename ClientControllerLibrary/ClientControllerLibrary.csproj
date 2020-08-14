@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ApiCaller.cs" />
     <Compile Include="Dtoes\Configuration\PlayerNumberDto.cs" />
+    <Compile Include="Dtoes\Dto.cs" />
     <Compile Include="Dtoes\Game\GameDto.cs" />
     <Compile Include="Dtoes\Game\PlayerStatusDto.cs" />
     <Compile Include="Dtoes\Player\PlayerDto.cs" />

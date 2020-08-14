@@ -11,7 +11,7 @@ namespace CardsGameServerQuery.Repositories.Game
 {
     public interface IGameDtoRepository : IRepository
     {
-        GameViewDto SelectById(IDbConnection connection, int id);
-        IEnumerable<GameViewDto> SelectByName(IDbConnection connection, string name);
+        GameDto SelectById(IDbConnection connection, int id);
+        IEnumerable<GameDto> SelectByName(IDbConnection connection, string name);
     }
 }

@@ -61,6 +61,15 @@ namespace CardsGameServerQuery.Repositories.Sql {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM cardsgame.players.
+        /// </summary>
+        internal static string SelectAll {
+            get {
+                return ResourceManager.GetString("SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT players.Id as PlayerId, players.Name as PlayerName, gamesteps.cardvalue as CardValue, players.playingpile as PlayingPile, players.discardpile as DiscardPile, gamesteps.cardsleft as CardsLeft
         ///FROM cardsgame.players players
         ///INNER JOIN cardsgame.games games on players.id = games.playerid

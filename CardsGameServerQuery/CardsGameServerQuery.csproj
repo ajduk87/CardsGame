@@ -118,9 +118,11 @@
     <Compile Include="ContainerInitializer.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="DatabaseConnectionFactory.cs" />
     <Compile Include="Dtoes\Dto.cs" />
-    <Compile Include="Dtoes\GameViewDto.cs" />
+    <Compile Include="Dtoes\GameDto.cs" />
+    <Compile Include="Dtoes\PlayerDto.cs" />
     <Compile Include="Dtoes\PlayerStatusDto.cs" />
     <Compile Include="IConfigurationService.cs" />
     <Compile Include="IDatabaseConnectionFactory.cs" />

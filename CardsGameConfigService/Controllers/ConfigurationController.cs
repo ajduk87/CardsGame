@@ -62,5 +62,16 @@ namespace CardsGameConfigService.Controllers
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
+
+        [HttpGet]
+        [Route("api/configuration")]
+        public PlayerNumberViewModel Get()
+        {
+            string configContent = File.ReadAllText(this.configPath);
+            PlayerNumberViewModel playerNumberViewModel = this.jsonSerializer.Deserialize<PlayerNumberViewModel>(configContent);
+                                         ;
+
+            return playerNumberViewModel;
+        }
     }
 }

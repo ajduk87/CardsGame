@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardsGameServerQuery.Dtoes
 {
-    public class GameViewDto : Dto
+    public class GameDto : Dto
     {
         public string Name { get; set; }
         public int PlayerId { get; set; }

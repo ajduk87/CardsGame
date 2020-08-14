@@ -10,14 +10,14 @@ namespace CardsGameServerQuery.Repositories.Game
 {
     public class GameDtoRepository : IGameDtoRepository
     {
-        public GameViewDto SelectById(IDbConnection connection, int id)
+        public GameDto SelectById(IDbConnection connection, int id)
         {
-            return connection.Query<GameViewDto>(GameQueries.Select, new { id }).Single();
+            return connection.Query<GameDto>(GameQueries.Select, new { id }).Single();
         }
 
-        public IEnumerable<GameViewDto> SelectByName(IDbConnection connection, string name)
+        public IEnumerable<GameDto> SelectByName(IDbConnection connection, string name)
         {
-            return connection.Query<GameViewDto>(GameQueries.SelectByName, new { name });
+            return connection.Query<GameDto>(GameQueries.SelectByName, new { name });
         }
     }
 }

@@ -103,6 +103,7 @@
     <Compile Include="Models\PlayerNumberBaseModel.cs" />
     <Compile Include="Models\PlayerNumberCreateModel.cs" />
     <Compile Include="Models\PlayerNumberUpdateModel.cs" />
+    <Compile Include="Models\PlayerNumberViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\Containers\RegistrationValidators.cs" />

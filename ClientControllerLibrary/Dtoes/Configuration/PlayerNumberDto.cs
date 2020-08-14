@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientControllerLibrary.Dtoes.Configuration
 {
-    public class PlayerNumberDto
+    public class PlayerNumberDto : Dto
     {
         public int NumberOfPlayers { get; set; }
     }
