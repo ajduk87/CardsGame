@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ClientControllerLibrary;
+using ClientControllerLibrary.Dtoes.Configuration;
+using ClientControllerLibrary.Dtoes.Player;
+using ClientControllerLibrary.Urls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,19 +24,44 @@ namespace ClientGuiApplication
     /// </summary>
     public partial class CardGameSetup : UserControl
     {
+
+        private readonly PlayerUrls playerUrls;
+        private readonly ConfigurationUrls configurationUrls;
+
+        private readonly IApiCaller apiCaller;
+
         public CardGameSetup()
         {
             InitializeComponent();
+
+            this.playerUrls = new PlayerUrls();
+            this.configurationUrls = new ConfigurationUrls();
+
+            this.apiCaller = new ApiCaller();
         }
 
         private void BtnEnterPlayer_Click(object sender, RoutedEventArgs e)
         {
+            PlayerDto playerDto = new PlayerDto
+            {
+                Name = tffirstname.Text,
+                MiddleName = tfmiddlename.Text,
+                LastName = tflastname.Text
+            };
 
+            this.apiCaller.Post(this.playerUrls.NewPlayer, playerDto);
         }
 
         private void BtnSendToServer_Click(object sender, RoutedEventArgs e)
         {
+            int.TryParse(tfplayersnumber.Text, out int playernumber);
 
+            PlayerNumberDto playerNumberDto = new PlayerNumberDto
+            {
+                NumberOfPlayers = playernumber
+            };
+
+            this.apiCaller.Put(this.configurationUrls.Configuration, playerNumberDto);
         }
     }
 }

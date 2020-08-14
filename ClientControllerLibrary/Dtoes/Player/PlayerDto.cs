@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientControllerLibrary.Dtoes.Player
 {
-    public class PlayerCreateDto
+    public class PlayerDto
     {
         public string Name { get; set; }
         public string MiddleName { get; set; }

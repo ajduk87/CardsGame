@@ -59,13 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiCaller.cs" />
-    <Compile Include="Dtoes\Configuration\PlayerNumberCreateDto.cs" />
-    <Compile Include="Dtoes\Configuration\PlayerNumberUpdateDto.cs" />
-    <Compile Include="Dtoes\Game\GameCreateDto.cs" />
-    <Compile Include="Dtoes\Game\GameUpdateDto.cs" />
-    <Compile Include="Dtoes\Game\GameViewDto.cs" />
+    <Compile Include="Dtoes\Configuration\PlayerNumberDto.cs" />
+    <Compile Include="Dtoes\Game\GameDto.cs" />
     <Compile Include="Dtoes\Game\PlayerStatusDto.cs" />
-    <Compile Include="Dtoes\Player\PlayerCreateDto.cs" />
+    <Compile Include="Dtoes\Player\PlayerDto.cs" />
     <Compile Include="Dtoes\Player\PlayerStatusDto.cs" />
     <Compile Include="IApiCaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

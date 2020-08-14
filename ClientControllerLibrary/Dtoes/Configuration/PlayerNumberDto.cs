@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClientControllerLibrary.Dtoes.Configuration
 {
-    public class PlayerNumberCreateDto
+    public class PlayerNumberDto
     {
         public int NumberOfPlayers { get; set; }
-        public string ConfigPath { get; set; }
     }
 }

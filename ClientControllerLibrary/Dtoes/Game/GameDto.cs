@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClientControllerLibrary.Dtoes.Game
 {
-    public class GameViewDto
+    public class GameDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
+        public int NumberOfPlayers { get; set; }
         public int PlayerId { get; set; }
-        public int NumberOfSteps { get; set; }
-        public bool IsWinner { get; set; }
+        public string PlayerName { get; set; }
+        public bool? IsWinner { get; set; }
     }
 }

@@ -59,8 +59,6 @@
         <TextBox Grid.Column="4" Name="tfplayersnumber" Grid.Row="1" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
 
 
-        <Label  Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Config path : "/>
-        <TextBox Grid.Column="4" Name="tfconfigpath" Grid.Row="2" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
 
 
 
