@@ -1,6 +1,7 @@
 ﻿using CardsGameServer.ApplicationLayer.Dtoes;
 using CardsGameServer.ApplicationLayer.Models.Player;
 using CardsGameServer.ApplicationLayer.Services.PlayerServices;
+using CardsGameServer.ApplicationLayer.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,8 @@ namespace CardsGameServer.ApplicationLayer.Controllers
         }
 
         [HttpPost]
-        [Route("api/createplayer")]
-        //[ValidateModelStateFilter]
+        [Route("api/newplayer")]
+        [ValidateModelStateFilter]
         public HttpResponseMessage CreatePlayer(PlayerCreateModel playerCreateModel)
         {
             PlayerDto playerDto = this.mapper.Map<PlayerCreateModel, PlayerDto>(playerCreateModel);

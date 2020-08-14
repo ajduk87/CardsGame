@@ -2,6 +2,7 @@
 using CardsGameServer.ApplicationLayer.Models;
 using CardsGameServer.ApplicationLayer.Validation;
 using CardsGameServer.ApplicationLayer.Validation.Game;
+using CardsGameServer.ApplicationLayer.Validation.Player;
 using FluentValidation;
 using System.Collections.Generic;
 
@@ -26,6 +27,11 @@ namespace CardsGameServer.ApplicationLayer.Registration
                       .Keyed<IValidator>("playerStatusStartModels")
                       .As<IValidator>()
                       .InstancePerLifetimeScope();
+
+            objContainer.RegisterType<PlayerCreateValidator>()
+                     .Keyed<IValidator>("playerCreateModel")
+                     .As<IValidator>()
+                     .InstancePerLifetimeScope();
 
             base.Load(objContainer);
         }
