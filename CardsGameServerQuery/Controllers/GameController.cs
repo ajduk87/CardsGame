@@ -25,20 +25,20 @@ namespace CardsGameServerQuery.Controllers
 
         [HttpGet]
         [Route("api/gamebyid/{id}")]
-        public GameDto GetGameById(int id)
+        public GameViewDto GetGameById(int id)
         {
             using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
             {
                 try
                 {
-                    GameDto gameDtoes = this.gameDtoRepository.SelectById(connection, id);
+                    GameViewDto gameDtoes = this.gameDtoRepository.SelectById(connection, id);
 
                     return gameDtoes;
                 }
                 catch (Exception ex)
                 {
                     Console.Write(ex.Message);
-                    return new GameDto();
+                    return new GameViewDto();
                 }
 
             }
@@ -46,20 +46,20 @@ namespace CardsGameServerQuery.Controllers
 
         [HttpGet]
         [Route("api/gamebyname/{name}")]
-        public IEnumerable<GameDto> GetGameByName(string name)
+        public IEnumerable<GameViewDto> GetGameByName(string name)
         {
             using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
             {
                 try
                 {
-                    IEnumerable<GameDto> gameDtoes = this.gameDtoRepository.SelectByName(connection, name);
+                    IEnumerable<GameViewDto> gameDtoes = this.gameDtoRepository.SelectByName(connection, name);
 
                     return gameDtoes;
                 }
                 catch (Exception ex)
                 {
                     Console.Write(ex.Message);
-                    return new List<GameDto>();
+                    return new List<GameViewDto>();
                 }
 
             }

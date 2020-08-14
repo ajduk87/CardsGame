@@ -1,0 +1,25 @@
+﻿<Window x:Class="ClientGuiApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientGuiApplication"
+        xmlns:uc="clr-namespace:ClientGuiApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <TabControl>
+            <TabItem Header="Make new game">
+                <uc:MakeNewGame/>
+            </TabItem>
+            <TabItem Header="Card game">
+                <uc:CardGame/>
+            </TabItem>
+            <TabItem Header="Card game setup">
+                <uc:CardGameSetup/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

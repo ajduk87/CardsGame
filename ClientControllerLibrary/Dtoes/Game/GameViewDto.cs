@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CardsGameServerQuery.Dtoes
+namespace ClientControllerLibrary.Dtoes.Game
 {
-    public class GameDto : Dto
+    public class GameViewDto
     {
         public string Name { get; set; }
         public int PlayerId { get; set; }

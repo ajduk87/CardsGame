@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="ClientGuiApplication.CardGame"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ClientGuiApplication"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="{StaticResource Gradient5}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <Label  Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Player 1" FontSize="20"/>
+
+
+        <Label  Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Discard Pile : "/>
+        <TextBox Grid.Column="1" Name="tfDiscardPile1" Grid.Row="1" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+        <Label  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Playing pile : "/>
+        <TextBox Grid.Column="1" Name="tfPlayingPile1" Grid.Row="2" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+        <Label  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Top card : "/>
+        <TextBox Grid.Column="1" Name="tfTopCard1" Grid.Row="3" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+
+        <Button Name = "btnStartRound"
+                Grid.Column="0"
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Width="200"
+                Height="25"
+                Content="start round"
+                Click="BtnStartRound_Click"/>
+
+        <Label  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Player 3" FontSize="20"/>
+
+        <Label  Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Discard Pile : "/>
+        <TextBox Grid.Column="1" Name="tfDiscardPile3" IsReadOnly="true" Grid.Row="6" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+        <Label  Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Playing pile : "/>
+        <TextBox Grid.Column="1" Name="tfPlayingPile3" IsReadOnly="true" Grid.Row="7" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+        <Label  Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Top card : "/>
+        <TextBox Grid.Column="1" Name="tfTopCard3" IsReadOnly="true" Grid.Row="8" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+
+        <Label  Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Player 2" FontSize="20"/>
+
+        <Label  Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Discard Pile : "/>
+        <TextBox Grid.Column="4" Name="tfDiscardPile2" Grid.Row="1" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+
+        <Label  Grid.Column="3" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Playing pile : "/>
+        <TextBox Grid.Column="4" Name="tfPlayingPile2" Grid.Row="2" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+        <Label  Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Top card : "/>
+        <TextBox Grid.Column="4" Name="tfTopCard2" Grid.Row="3" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+
+
+        <Button Name = "btnFinishRound"
+                Grid.Column="3"
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Width="200"
+                Height="25"
+                Content="Finish round"/>
+
+        <Label  Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Player 2" FontSize="20"/>
+
+        <Label  Grid.Column="3" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Discard Pile : "/>
+        <TextBox Grid.Column="4" Name="tfDiscardPile4" Grid.Row="6" IsReadOnly="True" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+        <Label  Grid.Column="3" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Playing pile : "/>
+        <TextBox Grid.Column="4" Name="tfPlayingPile4" Grid.Row="7" IsReadOnly="True" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+        <Label  Grid.Column="3" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Top card : "/>
+        <TextBox Grid.Column="4" Name="tfTopCard4" Grid.Row="8" IsReadOnly="True" Width="140" Height="20"  HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+
+    </Grid>
+</UserControl>
