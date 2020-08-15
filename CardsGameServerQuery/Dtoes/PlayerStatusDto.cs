@@ -15,5 +15,6 @@ namespace CardsGameServerQuery.Dtoes
         public string PlayingPile { get; set; }
         public string DiscardPile { get; set; }
         public int CardsLeft { get; set; }
+        public int GameStepId { get; set; }
     }
 }

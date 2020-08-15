@@ -44,10 +44,10 @@ namespace ClientGuiApplication
             string responseMessageStorage = this.apiCaller.Get(this.configurationUrls.Configuration);
             string responseStorage = Regex.Unescape(responseMessageStorage).Trim('"');
             PlayerNumberDto playerNumberDto = JsonConvert.DeserializeObject<PlayerNumberDto>(responseStorage);
-            Constants.NumberOfPlayers = playerNumberDto.NumberOfPlayers;
+            Params.NumberOfPlayers = playerNumberDto.NumberOfPlayers;
 
 
-            tfplayersnumber.Text = Constants.NumberOfPlayers.ToString();
+            tfplayersnumber.Text = Params.NumberOfPlayers.ToString();
         }
 
         private void BtnEnterPlayer_Click(object sender, RoutedEventArgs e)

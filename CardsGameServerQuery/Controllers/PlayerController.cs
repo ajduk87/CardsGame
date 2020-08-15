@@ -40,5 +40,26 @@ namespace CardsGameServerQuery.Controllers
 
             }
         }
+
+        [HttpGet]
+        [Route("api/playerbyid/{id}")]
+        public PlayerDto GetPlayer(int id)
+        {
+            using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
+            {
+                try
+                {
+                    PlayerDto playersDto = this.playerDtoRepository.Select(connection, id);
+
+                    return playersDto;
+                }
+                catch (Exception ex)
+                {
+                    Console.Write(ex.Message);
+                    return new PlayerDto();
+                }
+
+            }
+        }
     }
 }

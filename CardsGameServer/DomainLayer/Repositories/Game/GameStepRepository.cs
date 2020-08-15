@@ -13,6 +13,7 @@ namespace CardsGameServer.DomainLayer.Repositories
             {
                 playerid = gameStep.PlayerId.Content,
                 cardvalue = gameStep.CardValue.Content,
+                cardsuit = gameStep.CardSuit.Content,
                 isstepwinner = gameStep.IsStepWinner.Content,
                 cardsleft = gameStep.CardsLeft.Content
             }, transaction);

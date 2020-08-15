@@ -26,6 +26,13 @@ namespace CardsGameServer.DomainLayer.Entities.ValueObjects
             return new CardsLeft(this.Cards.Count);
         }
 
+        public Card GetCardFromTheTop()
+        {
+            Card firstOne = this.Cards.First();
+            this.Cards.RemoveAt(0);
+            return firstOne;
+        }
+
         public override string ToString()
         {
             List<string> cardsRepresentation = new List<string>();

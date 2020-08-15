@@ -7,17 +7,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using CardsGameServer.DomainLayer.Repositories.Sql;
+using CardsGameServer.ApplicationLayer.Dtoes;
+using CardsGameServer.ApplicationLayer.Dtoes.Player;
 
 namespace CardsGameServer.DomainLayer.Repositories
 {
     public class PlayerRepository : IPlayerRepository
     {
-        public Player SelectById(IDbConnection connection, long id, IDbTransaction transaction = null)
+        public DrawStatusDto SelectDrawStatus(IDbConnection connection, int id, IDbTransaction transaction = null)
         {
-            return connection.Query<Player>(PlayerQueries.Select, new { id }).Single();
+            return connection.Query<DrawStatusDto>(PlayerQueries.Select, new { id }).Single();
         }
 
-        public bool Exists(IDbConnection connection, long id, IDbTransaction transaction = null)
+        public bool Exists(IDbConnection connection, int id, IDbTransaction transaction = null)
         {
             return connection.ExecuteScalar<bool>(PlayerQueries.Exists, new { id });
         }

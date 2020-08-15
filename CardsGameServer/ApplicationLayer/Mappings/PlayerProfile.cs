@@ -15,6 +15,8 @@ namespace CardsGameServer.ApplicationLayer.Mappings
 
             CreateMap<PlayerStatusModel, PlayerStatusDto>()
                 .ForMember(dest => dest.CardSuit, opt => opt.MapFrom(src => ConvertCardSuit(src.CardSuit)));
+
+            CreateMap<DrawCardModel, DrawCardDto>();
         }
 
         private string ConvertCardSuit(int cardSuit)

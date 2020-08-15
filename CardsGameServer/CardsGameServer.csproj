@@ -168,10 +168,12 @@
     <Compile Include="ApplicationLayer\Controllers\BaseController.cs" />
     <Compile Include="ApplicationLayer\Controllers\GameController.cs" />
     <Compile Include="ApplicationLayer\Controllers\PlayerController.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\Player\DrawCardDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Dto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Game\GameDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Game\GameStepDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Parameter.cs" />
+    <Compile Include="ApplicationLayer\Dtoes\Player\DrawStatusDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Player\PlayerDto.cs" />
     <Compile Include="ApplicationLayer\Dtoes\Player\PlayerStatusDto.cs" />
     <Compile Include="ApplicationLayer\Enums\CardSuit.cs" />
@@ -180,6 +182,7 @@
     <Compile Include="ApplicationLayer\Mappings\PlayerProfile.cs" />
     <Compile Include="ApplicationLayer\Models\Game\GameBaseModel.cs" />
     <Compile Include="ApplicationLayer\Models\Game\GameCreateModel.cs" />
+    <Compile Include="ApplicationLayer\Models\Player\DrawCardModel.cs" />
     <Compile Include="ApplicationLayer\Models\Player\PlayerCreateModel.cs" />
     <Compile Include="ApplicationLayer\Models\Player\PlayerStatusModel.cs" />
     <Compile Include="ApplicationLayer\Models\Game\GameUpdateModel.cs" />
@@ -237,12 +240,14 @@
     <Compile Include="DomainLayer\Mappings\IMapper.cs" />
     <Compile Include="DomainLayer\Mappings\Profiles\PlayerProfile.cs" />
     <Compile Include="DomainLayer\Registration\RegistrationModule.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\WinnerSaver.cs" />
     <Compile Include="DomainLayer\Repositories\Game\GameProgressRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Game\GameRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Game\GameStepRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Game\IGameProgressRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Game\IGameRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Game\IGameStepRepository.cs" />
+    <Compile Include="DomainLayer\Repositories\Game\IWinnerSaver.cs" />
     <Compile Include="DomainLayer\Repositories\Player\IPlayerRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Game\IScoreRepository.cs" />
     <Compile Include="DomainLayer\Repositories\Table\ITableSaver.cs" />

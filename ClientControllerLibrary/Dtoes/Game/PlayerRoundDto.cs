@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientControllerLibrary.Dtoes.Player
+namespace ClientControllerLibrary.Dtoes.Game
 {
-    public class PlayerStatusDto : Dto
+    public class PlayerRoundDto : Dto
     {
         public int PlayerId { get; set; }
         public string PlayerName { get; set; }
@@ -15,5 +15,6 @@ namespace ClientControllerLibrary.Dtoes.Player
         public string PlayingPile { get; set; }
         public string DiscardPile { get; set; }
         public int CardsLeft { get; set; }
+        public int GameStepId { get; set; }
     }
 }

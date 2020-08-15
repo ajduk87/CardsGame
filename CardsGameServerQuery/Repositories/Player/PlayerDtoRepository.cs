@@ -18,6 +18,11 @@ namespace CardsGameServerQuery.Repositories.Player
             return connection.Query<PlayerDto>(PlayerQueries.SelectAll);
         }
 
+        public PlayerDto Select(IDbConnection connection, int id, IDbTransaction transaction = null)
+        {
+            return connection.Query<PlayerDto>(PlayerQueries.Select, new { id }).Single();
+        }
+
         public IEnumerable<PlayerStatusDto> SelectPlayerStatusByGamename(IDbConnection connection, string gamename, int numberOfPlayers, IDbTransaction transaction = null)
         {
             return connection.Query<PlayerStatusDto>(PlayerQueries.SelectByGameName, new { gamename, numberOfPlayers });

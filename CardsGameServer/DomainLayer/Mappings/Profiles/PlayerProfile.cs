@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CardsGameServer.ApplicationLayer.Dtoes;
+using CardsGameServer.ApplicationLayer.Dtoes.Player;
 using CardsGameServer.ApplicationLayer.Extensions;
 using CardsGameServer.DomainLayer.Entities.GamesEntities;
 using CardsGameServer.DomainLayer.Entities.PlayerEntities;
@@ -28,6 +29,13 @@ namespace CardsGameServer.DomainLayer.Mappings.Profiles
                 .ForMember(dest => dest.PlayingPile, opt => opt.MapFrom(src => MakePlayingCards(src.PlayingPile)))
                 .ForMember(dest => dest.DiscardPile, opt => opt.MapFrom(src => MakeDiscardCards(src.DiscardPile)))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.PlayerName));
+
+            CreateMap<DrawStatusDto, Player>()
+              .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+              .ForMember(dest => dest.TopCard, opt => opt.Ignore())
+              .ForMember(dest => dest.PlayingPile, opt => opt.MapFrom(src => MakePlayingCards(src.PlayingPile)))
+              .ForMember(dest => dest.DiscardPile, opt => opt.MapFrom(src => MakeDiscardCards(src.DiscardPile)));
+
 
         }
 

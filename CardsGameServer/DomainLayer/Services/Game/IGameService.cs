@@ -15,5 +15,6 @@ namespace CardsGameServer.DomainLayer.Services
         void UpdateGame(IDbConnection connection, Game game, IDbTransaction transaction = null);
         bool IsGameOver(IEnumerable<GameStep> gameSteps);
         void Terminate(IDbConnection connection, Player winner, IDbTransaction transaction = null);
+        void RecordWinner(IDbConnection connection, Player winner, IDbTransaction transaction = null);
     }
 }

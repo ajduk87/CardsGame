@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Insert" xml:space="preserve">
-    <value>INSERT INTO cardsgame.gamesteps(playerid, cardvalue, isstepwinner, cardsleft)
-VALUES(@playerid, @cardvalue, @isstepwinner, @cardsleft) RETURNING id;</value>
+    <value>INSERT INTO cardsgame.gamesteps(playerid, cardvalue, cardsuit, isstepwinner, cardsleft)
+VALUES(@playerid, @cardvalue, @cardsuit, @isstepwinner, @cardsleft) RETURNING id;</value>
   </data>
   <data name="InsertChild" xml:space="preserve">
     <value>INSERT INTO cardsgame.gamesgamesteps(gamename, gamestepid)

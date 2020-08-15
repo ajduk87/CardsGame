@@ -51,6 +51,7 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
             List<Card> shuffledCards = this.shiffleService.Shiffle(new NewPile());
             IEnumerable<Player> playersWithCards = this.croupierService.SplitDeck(shuffledCards, players);
             IEnumerable<GameStep> gameSteps = this.playerService.StartTheGame(playersWithCards);
+            this.croupierService.CollectCardsForThisRoundFromPlayers(players);
 
             using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
             {

@@ -16,6 +16,10 @@ namespace ClientControllerLibrary.Urls
         public string GameById { get; }
         public string GameByName { get; }
         public string GetCardsAndStatuses { get; }
+        public string GetCardsAndStatusForPlayer { get; }
+
+        public string GameIsInProgress { get; set; }
+        public string GameWinner { get; set; }
 
         public GameUrls()
         {
@@ -27,6 +31,10 @@ namespace ClientControllerLibrary.Urls
             this.GameById = $"{ServerQueryIpAddress}/api/gamebyid";
             this.GameByName = $"{ServerQueryIpAddress}/api/gamebyname";
             this.GetCardsAndStatuses = $"{ServerQueryIpAddress}/api/getcardsandstatuses";
+            this.GetCardsAndStatusForPlayer = $"{ServerQueryIpAddress}/api/getcardsandstatusforplayer";
+
+            this.GameIsInProgress = $"{ServerQueryIpAddress}/api/gameisinprogress";
+            this.GameWinner = $"{ServerQueryIpAddress}/api/gamewinner";
         }
     }
 }

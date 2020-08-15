@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientGuiApplication
+namespace CardsGameServer.ApplicationLayer.Models.Player
 {
-    public static class Constants
+    public class DrawCardModel
     {
-        public static int NumberOfPlayers { get; set; }
+        public int PlayerId { get; set; }
     }
 }

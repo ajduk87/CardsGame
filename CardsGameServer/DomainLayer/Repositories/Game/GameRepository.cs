@@ -1,15 +1,13 @@
-﻿using CardsGameServer.DomainLayer.Entities.GamesEntities;
-using System.Data;
+﻿using System.Data;
 using Dapper;
 using CardsGameServer.DomainLayer.Repositories.Sql;
-using CardsGameServer.DomainLayer.Entities.PlayerEntities;
 using System.Linq;
 
 namespace CardsGameServer.DomainLayer.Repositories
 {
     public class GameRepository : IGameRepository
     {
-        public void Insert(IDbConnection connection, Game game, IDbTransaction transaction = null)
+        public void Insert(IDbConnection connection, Entities.GamesEntities.Game game, IDbTransaction transaction = null)
         {
             connection.Execute(GameQueries.Insert, new
             {
@@ -20,7 +18,7 @@ namespace CardsGameServer.DomainLayer.Repositories
             });
         }
 
-        public void Update(IDbConnection connection, Game game, IDbTransaction transaction = null)
+        public void Update(IDbConnection connection, Entities.GamesEntities.Game game, IDbTransaction transaction = null)
         {
             connection.Execute(GameQueries.Update, new
             {
@@ -37,9 +35,9 @@ namespace CardsGameServer.DomainLayer.Repositories
             return connection.ExecuteScalar<bool>(GameQueries.Exists, new { id });
         }
 
-        public Game SelectLastestGameByPlayerId(IDbConnection connection, int playerid, IDbTransaction transaction = null)
+        public Entities.GamesEntities.Game SelectLastestGameByPlayerId(IDbConnection connection, int playerid, IDbTransaction transaction = null)
         {
-            return connection.Query<Game>(GameQueries.SelectByPlayerId, new { playerid }).Single();
+            return connection.Query<Entities.GamesEntities.Game>(GameQueries.SelectByPlayerId, new { playerid }).Single();
         }
     }
 }

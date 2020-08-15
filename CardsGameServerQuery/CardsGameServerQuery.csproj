@@ -122,6 +122,8 @@
     <Compile Include="DatabaseConnectionFactory.cs" />
     <Compile Include="Dtoes\Dto.cs" />
     <Compile Include="Dtoes\GameDto.cs" />
+    <Compile Include="Dtoes\GameProgressDto.cs" />
+    <Compile Include="Dtoes\GameWinnerDto.cs" />
     <Compile Include="Dtoes\PlayerDto.cs" />
     <Compile Include="Dtoes\PlayerStatusDto.cs" />
     <Compile Include="IConfigurationService.cs" />
@@ -131,9 +133,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\RegistrationModule.cs" />
     <Compile Include="Repositories\Game\GameDtoRepository.cs" />
+    <Compile Include="Repositories\Game\GameProgressDtoRepository.cs" />
     <Compile Include="Repositories\Game\IGameDtoRepository.cs" />
+    <Compile Include="Repositories\Game\IGameProgressDtoRepository.cs" />
+    <Compile Include="Repositories\Game\IWinnerGetter.cs" />
+    <Compile Include="Repositories\Game\WinnerGetter.cs" />
     <Compile Include="Repositories\Player\IPlayerDtoRepository.cs" />
     <Compile Include="Repositories\Player\PlayerDtoRepository.cs" />
+    <Compile Include="Repositories\Sql\GameProgressQueries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameProgressQueries.resx</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\Sql\GameQueries.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,6 +168,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Repositories\Sql\GameProgressQueries.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GameProgressQueries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Repositories\Sql\GameQueries.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GameQueries.Designer.cs</LastGenOutput>

@@ -61,6 +61,16 @@ namespace CardsGameServerQuery.Repositories.Sql {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM cardsgame.players
+        ///where id = @id.
+        /// </summary>
+        internal static string Select {
+            get {
+                return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT * FROM cardsgame.players.
         /// </summary>
         internal static string SelectAll {
@@ -70,13 +80,13 @@ namespace CardsGameServerQuery.Repositories.Sql {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT players.Id as PlayerId, players.Name as PlayerName, gamesteps.cardvalue as CardValue, players.playingpile as PlayingPile, players.discardpile as DiscardPile, gamesteps.cardsleft as CardsLeft
+        ///   Looks up a localized string similar to SELECT players.Id as PlayerId, players.Name as PlayerName, gamesteps.cardvalue as CardValue, gamesteps.cardsuit as CardSuit, players.playingpile as PlayingPile, players.discardpile as DiscardPile, gamesteps.cardsleft as CardsLeft, gamesteps.id as GameStepId
         ///FROM cardsgame.players players
         ///INNER JOIN cardsgame.games games on players.id = games.playerid
         ///INNER JOIN cardsgame.gamesteps gamesteps on games.playerid = gamesteps.playerid
         ///WHERE games.name = @gamename
-        ///ORDER BY gamesteps.id
-        ///LIMIT @numberOfPlayers;.
+        ///ORDER BY  gamesteps.id DESC
+        ///LIMIT @numberOfP [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SelectByGameName {
             get {

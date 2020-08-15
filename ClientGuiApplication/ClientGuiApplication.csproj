@@ -84,7 +84,7 @@
     <Compile Include="CardGameSetup.xaml.cs">
       <DependentUpon>CardGameSetup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Constants.cs" />
+    <Compile Include="Params.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

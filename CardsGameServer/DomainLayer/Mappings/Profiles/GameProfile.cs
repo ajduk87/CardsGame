@@ -25,6 +25,7 @@ namespace CardsGameServer.DomainLayer.Mappings.Profiles
                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.PlayerName));
 
             CreateMap<PlayerStatusDto, GameStep>()
+              .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.GameStepId))
               .ForMember(dest => dest.IsStepWinner, opt => opt.MapFrom(src => new IsStepWinner(false)));
         }
 

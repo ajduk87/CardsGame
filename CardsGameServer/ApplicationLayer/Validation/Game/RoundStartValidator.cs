@@ -56,18 +56,18 @@ namespace CardsGameServer.ApplicationLayer.Validation.Game
 
         private bool ValidateCardSuit(IEnumerable<PlayerStatusModel> playerStatuses)
         {
-            return !playerStatuses.Any(playerStatus => !Enum.IsDefined(typeof(CardSuit), playerStatus));
+            return !playerStatuses.Any(playerStatus => !Enum.IsDefined(typeof(CardSuit), playerStatus.CardSuit));
         }
 
         private bool ValidateCardNumbers(IEnumerable<PlayerStatusModel> playerStatuses)
         {
             double cardNumbers = playerStatuses.Sum(playerStatus => playerStatus.CardsLeft);
-            return cardNumbers == correctCardNumbers;
+            return cardNumbers + playerStatuses.Count() == correctCardNumbers;
         }
 
         private bool ValidatePlayerNumbers(IEnumerable<PlayerStatusModel> playerStatuses)
         {
-            return playerStatuses.Count() > this.maxNumberOfPlayers;
+            return playerStatuses.Count() < this.maxNumberOfPlayers;
         }
 
         #endregion

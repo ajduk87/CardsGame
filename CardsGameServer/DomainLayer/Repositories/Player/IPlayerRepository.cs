@@ -1,4 +1,6 @@
-﻿using CardsGameServer.DomainLayer.Entities.PlayerEntities;
+﻿using CardsGameServer.ApplicationLayer.Dtoes;
+using CardsGameServer.ApplicationLayer.Dtoes.Player;
+using CardsGameServer.DomainLayer.Entities.PlayerEntities;
 using RepositoryFactory;
 using System;
 using System.Collections.Generic;
@@ -11,8 +13,8 @@ namespace CardsGameServer.DomainLayer.Repositories
 {
     public interface IPlayerRepository : IRepository
     {
-        Player SelectById(IDbConnection connection, long id, IDbTransaction transaction = null);
-        bool Exists(IDbConnection connection, long id, IDbTransaction transaction = null);
+        DrawStatusDto SelectDrawStatus(IDbConnection connection, int id, IDbTransaction transaction = null);
+        bool Exists(IDbConnection connection, int id, IDbTransaction transaction = null);
         int Insert(IDbConnection connection, Player player, IDbTransaction transaction = null);
         void Update(IDbConnection connection, Player player, IDbTransaction transaction = null);
     }

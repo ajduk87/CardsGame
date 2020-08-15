@@ -10,5 +10,6 @@ namespace CardsGameServer.ApplicationLayer.Services.PlayerServices
     public interface IPlayerAppServices
     {
         void EnterPlayer(PlayerDto playerDto);
+        void DrawCards(IEnumerable<DrawCardDto> drawCardsDtoes);
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CardsGameServer.DomainLayer.Repositories.Sql {
+namespace CardsGameServerQuery.Repositories.Sql {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class GameStepQueries {
+    internal class GameProgressQueries {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal GameStepQueries() {
+        internal GameProgressQueries() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CardsGameServer.DomainLayer.Repositories.Sql.GameStepQueries", typeof(GameStepQueries).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CardsGameServerQuery.Repositories.Sql.GameProgressQueries", typeof(GameProgressQueries).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,33 +61,12 @@ namespace CardsGameServer.DomainLayer.Repositories.Sql {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO cardsgame.gamesteps(playerid, cardvalue, cardsuit, isstepwinner, cardsleft)
-        ///VALUES(@playerid, @cardvalue, @cardsuit, @isstepwinner, @cardsleft) RETURNING id;.
+        ///   Looks up a localized string similar to SELECT * FROM cardsgame.gamesprogress
+        ///where gamename = @gamename.
         /// </summary>
-        internal static string Insert {
+        internal static string Select {
             get {
-                return ResourceManager.GetString("Insert", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO cardsgame.gamesgamesteps(gamename, gamestepid)
-        ///VALUES(@gamename, @gamestepid).
-        /// </summary>
-        internal static string InsertChild {
-            get {
-                return ResourceManager.GetString("InsertChild", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UPDATE cardsgame.gamesteps
-        ///SET playerid = @playerid, cardvalue = @cardvalue, isstepwinner = @isstepwinner, cardsleft = @cardsleft
-        ///WHERE id = @id.
-        /// </summary>
-        internal static string Update {
-            get {
-                return ResourceManager.GetString("Update", resourceCulture);
+                return ResourceManager.GetString("Select", resourceCulture);
             }
         }
     }

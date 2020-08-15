@@ -34,5 +34,17 @@ namespace CardsGameServer.ApplicationLayer.Controllers
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
+        [HttpPut]
+        [Route("api/drawcards")]
+        //[ValidateModelStateFilter]
+        public HttpResponseMessage DrawCards(IEnumerable<DrawCardModel> drawCardsModels)
+        {
+            IEnumerable<DrawCardDto> drawCardsDtoes = this.mapper.Map<IEnumerable<DrawCardModel>, IEnumerable<DrawCardDto>>(drawCardsModels);
+
+            this.playerAppServices.DrawCards(drawCardsDtoes);
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
     }
 }

@@ -61,6 +61,8 @@ namespace ClientGuiApplication
             IRestResponse response = this.apiCaller.Post(this.gameUrls.NewGame, gameDtoes);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                Params.GameName = gameDtoes.First().Name;
+                Params.NumberOfSteps = 0;
                 MessageBox.Show("Now you can go to tab Card game! Enjoy!");
             }
         }
@@ -72,7 +74,7 @@ namespace ClientGuiApplication
             GameDto gameDto = new GameDto
             {
                 Name = tfgamename.Text,
-                NumberOfPlayers = Constants.NumberOfPlayers,
+                NumberOfPlayers = Params.NumberOfPlayers,
                 PlayerId = playerId,
                 PlayerName = tfplayername.Text
             };
@@ -80,7 +82,7 @@ namespace ClientGuiApplication
             gameDtoes.Add(gameDto);
 
             enteredPlayers++;
-            if (enteredPlayers == Constants.NumberOfPlayers)
+            if (enteredPlayers == Params.NumberOfPlayers)
             {
                 btnEnterPlayer.IsEnabled = false;
             }

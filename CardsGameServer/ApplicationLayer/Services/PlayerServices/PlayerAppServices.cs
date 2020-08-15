@@ -1,4 +1,6 @@
 ﻿using CardsGameServer.ApplicationLayer.Dtoes;
+using CardsGameServer.ApplicationLayer.Dtoes.Player;
+using CardsGameServer.ApplicationLayer.Extensions;
 using CardsGameServer.DomainLayer.Entities.PlayerEntities;
 using CardsGameServer.DomainLayer.Entities.ScoreEntities;
 using CardsGameServer.DomainLayer.Entities.ValueObjects.Shared;
@@ -40,6 +42,35 @@ namespace CardsGameServer.ApplicationLayer.Services.PlayerServices
                             NumberOfWins = new NumberOfWins(0)
                         };
                         this.scoreService.Insert(connection, score);
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        Console.Write(ex.Message);
+                    }
+
+                }
+            }
+        }
+
+
+        public void DrawCards(IEnumerable<DrawCardDto> drawCardsDtoes)
+        {
+            using (NpgsqlConnection connection = this.databaseConnectionFactory.Create())
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach(DrawCardDto drawCardDto in drawCardsDtoes)
+                        {
+                            DrawStatusDto drawStatusDto = this.playerService.SelectDrawStatus(connection, drawCardDto.PlayerId, transaction);
+                            Player player = this.dtoToEntityMapper.Map<DrawStatusDto, Player>(drawStatusDto);
+                            this.playerService.DrawCard(connection, player, transaction);
+                        }
+
                         transaction.Commit();
                     }
                     catch (Exception ex)

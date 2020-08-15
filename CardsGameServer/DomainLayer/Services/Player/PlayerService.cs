@@ -1,4 +1,6 @@
-﻿using CardsGameServer.DomainLayer.Entities.GamesEntities;
+﻿using CardsGameServer.ApplicationLayer.Dtoes;
+using CardsGameServer.ApplicationLayer.Dtoes.Player;
+using CardsGameServer.DomainLayer.Entities.GamesEntities;
 using CardsGameServer.DomainLayer.Entities.PlayerEntities;
 using CardsGameServer.DomainLayer.Entities.ValueObjects;
 using CardsGameServer.DomainLayer.Entities.ValueObjects.GameSteps;
@@ -32,6 +34,18 @@ namespace CardsGameServer.DomainLayer.Services
         public int InsertPlayer(IDbConnection connection, Player player, IDbTransaction transaction = null) =>
             this.playerRepository.Insert(connection, player, transaction);
 
+        public DrawStatusDto SelectDrawStatus(IDbConnection connection, int id, IDbTransaction transaction = null)
+        {
+            return this.playerRepository.SelectDrawStatus(connection, id, transaction);
+        }
+
+        public void DrawCard(IDbConnection connection, Player player, IDbTransaction transaction = null)
+        {
+            Card newTopCard = player.PlayingPile.GetCardFromTheTop();
+            player.TopCard = newTopCard;
+            this.playerRepository.Update(connection, player, transaction);
+        }
+
 
         public void SetupCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null) =>
             players.ForEach(player =>
@@ -48,14 +62,17 @@ namespace CardsGameServer.DomainLayer.Services
 
             players.ForEach(player =>
             {
+                Card topCard = player.PlayingPile.GetCardFromTheTop();
                 GameStep gameStep = new GameStep
                 {
                     PlayerId = player.Id,
                     IsStepWinner = new IsStepWinner(false),
-                    CardValue = new CardValue(),
+                    CardValue = topCard.Value,
+                    CardSuit = new CardSuit(topCard.Suit),
                     CardsLeft = player.PlayingPile.Count()
                 };
                 gamesteps.Add(gameStep);
+                player.TopCard = new Card(new CardValue(topCard.Value), topCard.Suit);
             });
 
             return gamesteps;

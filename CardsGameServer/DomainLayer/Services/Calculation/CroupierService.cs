@@ -43,5 +43,6 @@ namespace CardsGameServer.DomainLayer.Services
             players.ForEach(player => cardsForTable.Add(player.TopCard));
             this.tableService.PutOnTable(cardsForTable);
         }
+
     }
 }
