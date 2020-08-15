@@ -20,21 +20,21 @@ namespace CardsGameServer.DomainLayer.Extensions
     )
         {
 
-            using (var erator = source.GetEnumerator())
+            using (var iterator = source.GetEnumerator())
             {
-                if (!erator.MoveNext())
+                if (!iterator.MoveNext())
                     throw new InvalidOperationException("Sequence is empty.");
 
                 if (comparer == null)
                     comparer = Comparer<TProjected>.Default;
 
                 int index = 0, maxIndex = 0;
-                var maxProjection = selector(erator.Current);
+                var maxProjection = selector(iterator.Current);
 
-                while (erator.MoveNext())
+                while (iterator.MoveNext())
                 {
                     index++;
-                    var projectedItem = selector(erator.Current);
+                    var projectedItem = selector(iterator.Current);
 
                     if (comparer.Compare(projectedItem, maxProjection) > 0)
                     {
