@@ -89,7 +89,8 @@ namespace CardsGameServer.DomainLayer.Services
             return winner;
         }
 
-        public void ShuffleCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null) =>
+        public IEnumerable<Player> ShuffleCards(IEnumerable<Player> players)
+        {
             players.ForEach(player =>
                                 {
                                     if (player.PlayingPile.Cards.Count() == 0)
@@ -98,9 +99,17 @@ namespace CardsGameServer.DomainLayer.Services
                                         player.DiscardPile = new DiscardPile();
                                         List<Card> shuffledCards = this.shiffleService.Shiffle(player.PlayingPile);
                                         player.PlayingPile = new PlayingPile(shuffledCards);
-                                        this.playerRepository.Update(connection, player, transaction);
                                     }
                                 });
+
+            return players;
+        }
+
+        public void SaveShuffleCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null) =>
+             players.ForEach(player =>
+             {
+                 this.playerRepository.Update(connection, player, transaction);
+             });
 
     }
 }

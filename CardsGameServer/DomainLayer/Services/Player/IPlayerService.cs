@@ -20,6 +20,7 @@ namespace CardsGameServer.DomainLayer.Services
         void SetCardsToWinner(IDbConnection connection, Player winner, IDbTransaction transaction = null);
         IEnumerable<GameStep> StartTheGame(IEnumerable<Player> players);
         Player PickRoundWinner(IEnumerable<Player> allplayers, IEnumerable<GameStep> gameSteps);
-        void ShuffleCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null);
+        IEnumerable<Player> ShuffleCards(IEnumerable<Player> players);
+        void SaveShuffleCards(IDbConnection connection, IEnumerable<Player> players, IDbTransaction transaction = null);
     }
 }

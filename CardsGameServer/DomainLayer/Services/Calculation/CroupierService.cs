@@ -41,7 +41,9 @@ namespace CardsGameServer.DomainLayer.Services
         {
             List<Card> cardsForTable = new List<Card>();
             players.ForEach(player => cardsForTable.Add(player.TopCard));
-            this.tableService.PutOnTable(cardsForTable);
+            List<Card> cardsOnTable = this.tableService.PeekOnTable();
+            this.tableService.PutOnTable(cardsForTable.Union(cardsOnTable)
+                                                      .ToList());
         }
 
     }

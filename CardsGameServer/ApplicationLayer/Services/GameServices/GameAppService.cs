@@ -141,7 +141,8 @@ namespace CardsGameServer.ApplicationLayer.Services.GameServices
                             }
                             else
                             {
-                                this.playerService.ShuffleCards(connection, players, transaction);
+                                IEnumerable<Player> playerWithShuffledCards = this.playerService.ShuffleCards(players);
+                                this.playerService.SaveShuffleCards(connection, playerWithShuffledCards, transaction);
                             }
 
                             transaction.Commit();
