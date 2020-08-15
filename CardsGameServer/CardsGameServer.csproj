@@ -214,6 +214,10 @@
     <Compile Include="DomainLayer\Entities\GamesEntities\GameStep.cs" />
     <Compile Include="DomainLayer\Entities\IEntity.cs" />
     <Compile Include="DomainLayer\Entities\PlayerEntities\Player.cs" />
+    <Compile Include="DomainLayer\Entities\PlayerEntities\RewardCalculation\IRewardCalculation.cs" />
+    <Compile Include="DomainLayer\Entities\PlayerEntities\RewardCalculation\RewardForHighRating.cs" />
+    <Compile Include="DomainLayer\Entities\PlayerEntities\RewardCalculation\RewardForLowRating.cs" />
+    <Compile Include="DomainLayer\Entities\PlayerEntities\RewardCalculation\RewardForNormalRating.cs" />
     <Compile Include="DomainLayer\Entities\ScoreEntities\Score.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Card.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\DiscardPile.cs" />
@@ -228,6 +232,7 @@
     <Compile Include="DomainLayer\Entities\ValueObjects\ICardsCounter.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\IPile.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\NewPile.cs" />
+    <Compile Include="DomainLayer\Entities\ValueObjects\Player\Reward.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\PlayingPile.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Shared\Id.cs" />
     <Compile Include="DomainLayer\Entities\ValueObjects\Shared\Name.cs" />
