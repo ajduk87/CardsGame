@@ -14,7 +14,7 @@ namespace CardsGameServer.DomainLayer.Services
     {
         /***************** This is too procedural approach ***********************/
 
-        /***************** It will be refactored in branch_iteratorpattern ***********************/
+        /***************** It will be refactored in branch_linq ***********************/
 
         private List<GameStep> gameStepsEvaulating;
 
